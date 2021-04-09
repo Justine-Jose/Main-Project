@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            <form class="user" method="POST" action="../startbootstrap-sb-admin-2-gh-pages/PHP/Document2.php"  name ="regform"  onsubmit="return checkPassword(this)">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control form-control-user"  pattern="[A-Za-z]{1,255}" id="exampleFirstName" name ="name" required="required">
+                                    </div>
+                                    <div class="col-sm-6"><label>Email</label>
+                                        <input type="email" class="form-control form-control-user" id="exampleemail" name="email" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                         <label>Phone Number</label>
+                                            <input type="text" pattern="[6-9]{1}[0-9]{9}" name="phoneno" class="form-control form-control-user" id="exampleInputEmail">
+                                        </div>
+                                <div class="col-sm-6">
+                                    <label>Department</label>
+                                        <input type="text" class="form-control form-control-user"
+                                            name="department" name="department"  pattern="[A-Za-z]{1,100}" required="required">
+                                        </div>
+                                    </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label>Gender</label></br>
+                                        <input type="radio" class="forml-control forml-control-user" 
+                                                name="gender" checked required="required" value="male">Male
+                                                <input type="radio" class="forml-control" 
+                                                name="gender" value="female">Female
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Date of Birth</label>
+                                        <input type="date" class="form-control" name="dob" 
+					                        id ="date" min="1900-01-01" max="2014-12-31" required="required">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class ="col-sm-6 mb-3 mb-sm-0">
+                                    <label>Library Number</label>
+                                        <div class="col"><input type="text" class="form-control form-control-user"
+                                            name="library_number" pattern="[0-9]{2,6}" required="required"></div>
+                                        
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Username</label>
+                                            <input type="text" class="form-control form-control-user"
+                                                name="username"  pattern="[A-Za-z]{1,100}" required="required">
+                                            </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><label>Password</label>
+                                        <div class="col">
+                                            <input type="password" class="form-control form-control-user" name="passwrd"
+                                            id="password1" required="required">
+                                    </div>
+                                </div>
+                                    <div class="col-sm-6"><label>Confirm Password</label>
+                                        <input type="password" class="form-control form-control-user"
+                                            id="password2"  required="required">
+                                    </div>
+                                
+                                </div>
+                                <button  type="submit" class="btn btn-primary btn-user btn-block">
+                                
+                                    Register Account</button>
+                                <!---<hr>
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>--->
+                            </form>
+                            <hr>
+                            <!---<div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div>--->
+                            <div class="text-center">
+                                <a class="small" href="login.html">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+		function checkPassword(form) { 
+                password1 = form.password1.value; 
+                password2 = form.password2.value; 
+  
+                // If password not entered 
+                if (password1 == '') 
+                    alert ("Please enter Password"); 
+                      
+                // If confirm password not entered 
+                else if (password2 == '') 
+                    alert ("Please enter confirm password"); 
+                      
+                // If Not same return False.     
+                else if (password1 != password2) { 
+                    alert ("\nPassword did not match: Please try again...") 
+                    return false; 
+                } 
+  
+                // If same return True. 
+                else{ 
+                    alert("Password Match") 
+                    return true; 
+                } 
+            } 
+    </script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
