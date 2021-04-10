@@ -15,7 +15,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>E-Book</title>
+    <title>Excel-Upload</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
