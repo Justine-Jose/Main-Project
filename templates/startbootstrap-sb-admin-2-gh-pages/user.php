@@ -81,7 +81,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
-                        <a class="collapse-item" href="#">Issued Books</a>
+                        <a class="collapse-item" href="issued_book.php">Issued Books</a>
+                        <a class="collapse-item" href="issued_book(Test).php">Issued Books(Test)</a>
                         <a class="collapse-item" href="reservation_details.php">Reservation Details</a>
                         <a class="collapse-item" href="#">Dues Archives</a>
                         <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
@@ -102,7 +103,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
-                        <a class="collapse-item" href="#">Borders</a>
+                        <a class="collapse-item" href="user_report.php">Activities</a>
                         <a class="collapse-item" href="#">Animations</a>
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>

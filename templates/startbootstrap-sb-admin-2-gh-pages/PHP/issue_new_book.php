@@ -11,7 +11,7 @@
         $bname = $_POST['bookname'];
         $date = date('Y-m-d H:i:s');
         
-        $sql = "INSERT INTO book_issue(book_id,member_id,issue_date,status) VALUES ($isbn,$studentid,now(),'0')";
+        $sql = "INSERT INTO book_issue(book_id,l_id,issue_date,return_date,status) VALUES ($isbn,$studentid,now(),DATE_ADD(now(), INTERVAL 10 DAY),'0')";
          if (mysqli_query($con,$sql))
          {
              ?>

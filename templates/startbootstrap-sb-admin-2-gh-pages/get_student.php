@@ -9,7 +9,7 @@ if(!isset($_GET["sid"])) {
 
   $sid= ($_GET["sid"]);
   $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
-    $sql ="SELECT m_name,m_status FROM member_registration WHERE member_id= $sid";
+    $sql ="SELECT username FROM login WHERE l_id= $sid";
 
     $result = mysqli_query($con,$sql);
 
@@ -26,7 +26,7 @@ if(!isset($_GET["sid"])) {
 
     else{
       $row = mysqli_fetch_array($result);
-      die($row['m_name']);
+      die($row['username']);
     }
 
 

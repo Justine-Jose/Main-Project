@@ -194,8 +194,12 @@ $name = $_SESSION['username'];
                                     </thead>
                                     
                         <?php
+                        $querry = "SELECT * FROM tbl_penality";
+                        $res = mysqli_query($con,$querry);
 
-                        $sql = "SELECT b.book_id, b.";
+                        $sql = "SELECT a.book_title, a.book_id, b.book_id, b.l_id, b.issue_date, b.return_date, l.l_id, l.username 
+                        from book_table a, book_issue b, login l where b.l_id = l.l_id 
+                        and b.book_id = a.book_id and l.username = '$name'";
                         $result = mysqli_query($con,$sql);
                         $num = mysqli_num_rows($result);
                         $count = 1;
@@ -214,16 +218,14 @@ $name = $_SESSION['username'];
                                         <tr>
                                         
                                         <?php echo "<td class = 'Text-center'>" .$count++ ."</td>"; ?>
-                                        <td class = "Text-center">
-                                            <div class = "form-group">
-                                                <input  type ="text" name = "book_title" readonly="readonly" value = "<?php 
-                                                 echo " " .$row["book_title"];
-                                                ?>"
-                                            </div>
+                                        <?php echo "<td class = 'Text-center'>" .$row['book_title'] ."</td>";?>
+                                        <?php echo "<td class = 'Text-center'>" .$row['issue_date'] ."</td>";?>
+                                        <?php echo "<td class = 'Text-center'>" .$row['return_date'] ."</td>";?>
+                                            
                                         </td>
-                                        <?php echo  "<td class = 'Text-center'>".$row["year_of_publish"] ."</td>"; ?>
-                                        <?php echo  "<td class = 'Text-center'>".$row["edition"] ."</td>"; ?>
-                                        <td class = 'Text-center'><input type = "Submit" class = "btn btn-success btn-sm" name = "reserve" value = "Reserve"></td>
+                                        <?php //echo  "<td class = 'Text-center'>".$row["year_of_publish"] ."</td>"; ?>
+                                        <?php //echo  "<td class = 'Text-center'>".$row["edition"] ."</td>"; ?>
+                                       
                                             
                                         </tr>
                         <?php

@@ -3,6 +3,8 @@ session_start();
 
 
 $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+$id=$_GET['id'];
+
  
  //$sql = "UPDATE ebook_table set status = 'Approved' WHERE 
  //(SELECT l.l_id, e.l_id from login l, ebook_table e WHERE e.l_id = l.l_id))";
@@ -18,8 +20,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
     while($row = mysqli_fetch_assoc($result))
     {
-       $a = $row['l_id'];
-        $querry = "UPDATE ebook_table set status = 'Approved' WHERE l_id = '$a'";
+       
+        $querry = "UPDATE ebook_table set status = 'Approved' WHERE l_id = '$id'";
         $res = mysqli_query($con,$querry);
        
 

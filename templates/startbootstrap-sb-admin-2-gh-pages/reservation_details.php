@@ -223,7 +223,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                         <?php echo "<td class = 'Text-center'>" .$count++ ."</td>"; ?>
                                         <td class = "Text-center">
                                             <div class = "form-group">
-                                                <input  type ="text" name = "book_title" readonly="readonly" value = "<?php 
+                                                <input  type ="text" name = "book_title" id = "book_title" readonly="readonly" value = "<?php 
                                                  echo " " .$row["book_title"];
                                                 ?>"
                                             </div>

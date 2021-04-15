@@ -28,6 +28,14 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script>
+function update(id){
+	var frm = document.getElementById("frmm")
+	frm.setAttribute("action","php/approve.php?id="+id);
+	frm.submit();
+
+}
+    </script>
 
 </head>
 
@@ -221,18 +229,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <form method = "POST" action = "php/approve.php">
+                            <form method = "POST" action = "php/approve.php" id="frmm">
                                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Name</th>
-                                            <th>Book Title</th>
-                                             <!---<th>Department</th>
-                                            <th>Uploaded Date</th>--->
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
+                                    
                                     <!---<tfoot>
                                         <tr>
                                             <th>No</th>
@@ -245,46 +244,31 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                     </tfoot>
                                     <tbody>--->
 <?php
+$sql="select * from ebook_table where status= '0'";
+$result=mysqli_query($con,$sql);
 
-   $sql = "SELECT b.l_id, b.book_name, b.status, l.l_id, l.username from ebook_table b,
-            login l WHERE b.l_id = l.l_id AND b.status = '0'";
+echo'<tr><th class="text-center">No</th><th class="text-center">Name</th><th class="text-center">Book Title</th><th class="text-center">Approve</th>';
+while($row=mysqli_fetch_array($result))
+{
+    $t=$row['l_id'];
+	$sql = "select * from login where l_id='$t'";
     $result = mysqli_query($con,$sql);
-    $num = mysqli_num_rows($result);
-    $count = 1;
-     
-    while($row = mysqli_fetch_array($result))
-
-    {
-
+    $num1 = mysqli_fetch_array($result)['username'];
     
     
+	
+						  echo'<tr><td class="text-center"></td>';
+                          echo '<td class="text-center">'.$num1.'</td>';
+                          echo'<td class="text-center">'.$row['book_name'].'</td>';
+                          echo'<td class="text-center"><input type="checkbox" id='.$row["l_id"].' onclick="update(this.id)" ></td> </tr>';
+                         
+					      }?>
+						  	
 
-?>
-                                
-                                        <tr>
-                                    <?php
-                                             echo "<td>" .$count++ ."</td>";
-                                             echo "<td>" .$row["username"] ."</td>";
-                                             echo "<td>" .$row["book_name"] ."</td>";
-                                             //echo "<td>" .$row["status"] ."</td>";
-                                             //echo "<td>" .$row["status"] ."</td>";?>
-                                             <td><input type = "hidden" name ="l_id" value ="<?php echo $row['l_id']; ?>" </td>
-                                             <td class = "Text-center"><a href = "php/approve.php" class = "btn btn-success btn-sm">
-                                                <i class="fa fa-check" aria-hidden="true"></i></a>
-                                             <a href = "php/reject.php" class="btn btn-danger" aria-label="Left Align">
-                                             <i class="fa fa-times" aria-hidden="true"></i></a>
-                                             
-                                             </td>
-                                             
-                                             <?php
-                                           
 
-                                    ?>
-                                        </tr>
-        <?php
 
-        }
-        ?>
+
+   
                                     </tbody>
                                 </table>
                                 </form>
