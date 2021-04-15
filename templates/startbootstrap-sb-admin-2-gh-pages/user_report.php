@@ -288,19 +288,42 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
                     <!-- Content Row -->
                     <div class="card shadow mb-4">
+                    <form method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/pdf_report.php">
+        <div class="col-md-12 bg-light text-right p-2">
+            <input type="submit" class="btn btn-primary" name = "generate" value = "Generate">
+        </div>
+        </form>
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Report </h6>
+        <h6 class="m-0 font-weight-bold text-primary">Report-E-Book Uploads </h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-        <form method = "POST" action = "php/approve.php">
+       
+       
+        <?php 
+            $name =$_SESSION["username"];
+            //echo  $username;
+            $querry = "SELECT username FROM login where username = '$name";
+            $result = mysqli_query($con,$querry);
+            ?>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <?php 
+                            echo "<td>" .$name. "</td>";
+                        ?>
+                    </tr>
+                    
+                </thead>
+            </table>
+        
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Book Title</th>
-                         
-                        <th>Status</th>
+                         <th>Status</th>
                     </tr>
                 </thead>
     <?php
@@ -319,7 +342,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     ?>
                     <tr>
                         <?php 
-                            echo "<td>" .$username ."</td>";
+                           // echo "<td>" .$username ."</td>";
                         ?>
                     </tr>
 
@@ -365,6 +388,67 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 <!-- DataTales Example -->
 
     </div>
+    <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Issued Details</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Book Title</th>
+                                            <th>Issued Date</th>
+                                            <th>Return Date</th>
+                                            <th>Status</th>
+                                            
+                                        </tr>
+                                    </thead>
+                            <?php
+                            /*$sql = "SELECT b.book_id, b.category_id, b.book_title, b.book_author, b.second_author,
+                                    b.third_author,b.year_of_publish, b.edition, b.book_status, c.category_name 
+                                    FROM book_table b,book_category c WHERE b.category_id = c.category_id";
+
+                $result=mysqli_query($con,$sql);
+                $num=mysqli_num_rows($result);
+                $count = 1;
+
+                while($row = mysqli_fetch_array($result))
+                {*/
+                            ?>
+                                        <tr>
+                                            <?php
+                                            //echo "<td>" .$row["book_id"] ."</td>";
+                                            //echo "<td>" .$row["book_title"] ."</td>";
+                                            //echo "<td>" .$row["category_name"]. "</td>";
+                                            //echo "<td>" .$row["book_author"] ."</td>";
+                                            //echo "<td>" .$row["second_author"] ."</td>";
+                                            //echo "<td>" .$row["third_author"] ."</td>";
+                                            //echo "<td>" .$row["year_of_publish"] ."</td>";
+                                            //echo "<td>" .$row["edition"] ."</td>";
+                                            //echo "<td>" .$row["category_name"]. "</td>";
+                                             
+                                            ?>
+                        
+                                        </tr>
+                        <?php
+                                        
+                //}
+                ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
             <!-- End of Main Content -->
 
             
