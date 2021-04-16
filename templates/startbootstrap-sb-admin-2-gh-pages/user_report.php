@@ -302,6 +302,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
        
         <?php 
             $name =$_SESSION["username"];
+            //$id = $_SESSION['l_id'];
             //echo  $username;
             $querry = "SELECT username FROM login where username = '$name";
             $result = mysqli_query($con,$querry);
@@ -409,23 +410,37 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                         </tr>
                                     </thead>
                             <?php
-                            /*$sql = "SELECT b.book_id, b.category_id, b.book_title, b.book_author, b.second_author,
-                                    b.third_author,b.year_of_publish, b.edition, b.book_status, c.category_name 
-                                    FROM book_table b,book_category c WHERE b.category_id = c.category_id";
-
-                $result=mysqli_query($con,$sql);
-                $num=mysqli_num_rows($result);
+                            
+                $sql = "SELECT a.book_title, a.book_id, b.book_id, b.l_id, b.issue_date, b.return_date, b.status, l.l_id, l.username 
+                        from book_table a, book_issue b, login l where b.l_id = l.l_id 
+                        and b.book_id = a.book_id and l.username = '$name'";
+                            
+                $result = mysqli_query($con,$sql);
+                $num = mysqli_num_rows($result);
                 $count = 1;
-
-                while($row = mysqli_fetch_array($result))
-                {*/
+    
+                            while($row = mysqli_fetch_array($result))
+                {
                             ?>
+                
                                         <tr>
                                             <?php
-                                            //echo "<td>" .$row["book_id"] ."</td>";
-                                            //echo "<td>" .$row["book_title"] ."</td>";
-                                            //echo "<td>" .$row["category_name"]. "</td>";
-                                            //echo "<td>" .$row["book_author"] ."</td>";
+                                            echo "<td>" .$count++."</td>";
+                                            echo "<td>" .$row['book_title'] ."</td>";
+                                            echo "<td>" .$row['issue_date']. "</td>";
+                                            echo "<td>" .$row['return_date']. "</td>";
+                                            
+                                            if($row['status'] == '0')
+                                                {
+                                                    echo "<td> Not Returned </td>";
+                                                }
+
+                                            else{
+
+                                                echo "<td> Returned </td>";
+                                            }
+
+
                                             //echo "<td>" .$row["second_author"] ."</td>";
                                             //echo "<td>" .$row["third_author"] ."</td>";
                                             //echo "<td>" .$row["year_of_publish"] ."</td>";
@@ -437,7 +452,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                         </tr>
                         <?php
                                         
-                //}
+                }
                 ?>
                                     </tbody>
                                 </table>
