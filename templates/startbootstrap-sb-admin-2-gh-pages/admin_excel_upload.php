@@ -306,6 +306,12 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                                         <input type="submit" value="Upload" name="Upload"> 
                                                 </div>
                                             </form>
+                                            
+                                            <div class = "form-group">
+                                            <label>Sample Excel Format</label>
+                                                        <!---<input type="submit"  value="Example Format" name="example">---> 
+                                                        <a href= "excel_model.php" class = "btn btn-primary btn-sml"  > Example Format</a>
+                                                </div>
                                 </div>
                             </div>
 

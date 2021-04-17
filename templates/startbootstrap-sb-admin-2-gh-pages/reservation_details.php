@@ -173,13 +173,19 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Reservation Details</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Reservation Details</h6></br>
+                                <!---<form mathod = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php">
+                                    
+                                    <label>Book title </label>
+                                    <input type = "text" name = "book" >
+                                    <input type = "Submit" class = "btn btn-success btn-sm" name = "reserve" value = "Reserve">
+                                </form>--->
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                              
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <form mathod = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php">
+                                   <form mathod = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php">
                                 
                                 <thead>
                                         <tr>
@@ -221,16 +227,18 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                         <tr>
                                         
                                         <?php echo "<td class = 'Text-center'>" .$count++ ."</td>"; ?>
-                                        <td class = "Text-center">
-                                            <div class = "form-group">
-                                                <input  type ="text" name = "book_title" id = "book_title" readonly="readonly" value = "<?php 
-                                                 echo " " .$row["book_title"];
-                                                ?>"
-                                            </div>
-                                        </td>
+                                        <!---<td class = "Text-center">--->
+                                            <!---<div class = "form-group">--->
+                                                <!---<input  type ="text" name = "book_title" id = "book_title" readonly="readonly" value = "---><?php 
+                                                 echo " <td class = 'Text-center'>" .$row["book_title"] ."</td>";
+                                                ?>
+                                            <!---</div>
+                                        </td>--->
                                         <?php echo  "<td class = 'Text-center'>".$row["year_of_publish"] ."</td>"; ?>
                                         <?php echo  "<td class = 'Text-center'>".$row["edition"] ."</td>"; ?>
-                                        <td class = 'Text-center'><input type = "Submit" class = "btn btn-success btn-sm" name = "reserve" value = "Reserve"></td>
+                                        <?php echo "<td class = 'Text-center'> <a href='../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php?x=" .$row['book_id']. " '> Reserve</a>";
+                                        
+                                        //<input type = 'Submit' class = 'btn btn-success btn-sm' name = 'reserve' value = 'Reserve'></td>"; ?>
                                             
                                         </tr>
                         <?php
@@ -238,7 +246,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         ?>
                                         
                                          </tbody>
-                                    </form>
+                                    <!---</form>--->
                                 </table>
                             </div>
                         </div>

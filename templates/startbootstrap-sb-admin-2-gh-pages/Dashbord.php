@@ -120,6 +120,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <h6 class="collapse-header">Manage Book:</h6>
                         <a class="collapse-item" href="ebook_add.php">UPLOAD NEW </a>
                         <a class="collapse-item" href="admin_approve_ebook.php">USER UPLOADS</a>
+                        <a class="collapse-item" href="admin_approve_ebook_test.php">USER UPLOADS(TEST)</a>
                         <a class="collapse-item" href="#">DETAILS</a>
                        <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>--->
