@@ -102,8 +102,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <a class="collapse-item" href="admin_view Books.php">Manage Book</a>
                         <a class="collapse-item" href="admin purchase book details.php">Purchase Details</a>
                         <a class="collapse-item" href="add_category.php">New Category</a>
-                       <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>--->
+                        <a class="collapse-item" href="mail_page.php">Order New Books</a>
+                        <!---<a class="collapse-item" href="utilities-other.html">Other</a>--->
                     </div>
                 </div>
             </li>
