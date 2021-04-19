@@ -277,9 +277,10 @@ function getbook(belement) {
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                         <tr>
+                                            <th>No </th>
                                             <th>Student Name</th>
                                             <th>Book Name</th>
-                                            <th>ISBN</th>
+                                            
                                             <th>Issue Date</th>
                                             <th>Return Date</th>
                                             <th>Action</th>
@@ -288,21 +289,38 @@ function getbook(belement) {
                                     </tfoot>
 <?php
 
-$sql = "SELECT member_registration.m_name,book_table.book_title,book_table.isbn_no,book_issue.issue_date,book_issue.return_date, book_issue.issue_id 
-as rid from book_issue join member_registration on member_registration.member_id = book_issue.member_id join member_registration on
-member_registration.member_id = book_issue.member_id join book_table on "
+$sql = "SELECT a.book_id, a.book_title, b.issue_id , b.book_id, b.issue_date, b.return_date, b.l_id, b.status, l.l_id, l.username FROM book_table a, book_issue b, login l
+        WHERE a.book_id = b.book_id and b.l_id = l.l_id and status = '0' ";
+
+        $result = mysqli_query($con, $sql);
+        
+      //$num = mysqli_num_rows($result);
+        $count = 1;
+
+        while($row = mysqli_fetch_array($result))
+
+
+        {
+
 ?>
 
                                     <tbody>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <?php echo "<td>" .$count++ ."</td>"; ?>
+                                            <?php echo " <td>" .$row["username"] ."</td>";?>
+                                            <?php echo " <td>" .$row["book_title"] ."</td>";?>
+                                            <?php echo " <td>" .$row["issue_date"] ."</td>";?>
+                                            <?php echo " <td>" .$row["return_date"] ."</td>";?>
+                                            <?php //echo " <td>" .$row["issue_id"] ."</td>";?>
+                                            <?php echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/return.php?x=" .$row['issue_id']. " ' class = 'btn btn-success btn-sm'>Return</a></td>"; ?>
+                                            
                                         </tr>
-                                    
+                                    </tbody>
+
+        <?php 
+
+        }
+        ?>
                                 </table>
                             </div>
                         </div>

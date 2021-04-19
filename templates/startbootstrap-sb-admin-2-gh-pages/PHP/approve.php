@@ -14,7 +14,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 	$a=intval($_GET['x']);
  
  
- $sql = "SELECT b.l_id, b.book_name, b.status, l.l_id, l.username 
+ $sql = "SELECT b.ebook_id,  b.l_id, b.book_name, b.status, l.l_id, l.username 
             from ebook_table b,
             login l WHERE b.l_id = l.l_id ";
     $result = mysqli_query($con,$sql);

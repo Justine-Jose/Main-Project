@@ -141,7 +141,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <h6 class="collapse-header" href = "#">Issue Books</h6>
                         <a class="collapse-item" href="admin_issue book.php">Issue New Book</a>
                         <a class="collapse-item" href="admin_return book.php">Return</a>
-                        <a class="collapse-item" href="#">Manage Issue</a>
+                        <a class="collapse-item" href="admin_manage_issuebook.php">Manage Issue</a>
                         
                        <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>--->

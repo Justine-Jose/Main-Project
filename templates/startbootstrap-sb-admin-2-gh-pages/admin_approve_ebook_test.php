@@ -246,7 +246,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                     <tbody>--->
 <?php
 
-   $sql = "SELECT b.l_id, b.book_name, b.status, l.l_id, l.username from ebook_table b,
+   $sql = "SELECT b.ebook_id, b.l_id, b.book_name, b.status, l.l_id, l.username from ebook_table b,
             login l WHERE b.l_id = l.l_id AND b.status = '0'";
     $result = mysqli_query($con,$sql);
     $num = mysqli_num_rows($result);
@@ -266,7 +266,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                              echo "<td>" .$count++ ."</td>";
                                              echo "<td>" .$row["username"] ."</td>";
                                              echo "<td>" .$row["book_name"] ."</td>";
-                                             //echo "<td>" .$row["status"] ."</td>";
+                                             //echo "<td>" .$row["ebook_id "] ."</td>";
                                              //echo "<td>" .$row["status"] ."</td>";?>
                                              <!---<td><input type = "hidden" name ="l_id" value ="<?php //echo $row['l_id']; ?>" </td>--->
                                              <?php echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/approve.php?x=" .$row['l_id']. " ' class = 'btn btn-success btn-sm'><i class='fa fa-check' aria-hidden='true'></i></a></a>"; 
