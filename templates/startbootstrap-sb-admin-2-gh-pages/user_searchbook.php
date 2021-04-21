@@ -15,6 +15,7 @@ if(!empty($_SESSION['username']))
 <html lang="en">
 
 <head>
+        
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -199,47 +200,31 @@ if(!empty($_SESSION['username']))
                             <h6 class="m-0 font-weight-bold text-primary">Search Books</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>NO</th>
-                                            <th>Book Title</th>
-                                            <th>Author</th>
-                                            <th>Year of Publish</th>
-                                            <th>Edition</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                            <?php
-
-                                    $sql = "SELECT * from book_table";
-                                    $result = mysqli_query($con, $sql);
-                                    $count = 1;
-
-                                    while($row = mysqli_fetch_array($result))
-
-                                    {
-
-                                    
-                            ?>
-                                        
-                                        <tr>
-                                        <?php echo "<td class = 'Text-center'>" .$count++ ."</td>"; ?>
-                                        <?php echo " <td class = 'Text-center'>" .$row["book_title"] ."</td>"; ?>
-                                        <?php echo " <td class = 'Text-center'>" .$row["book_author"] ."</br>".$row['second_author']. "</td>"; ?>
-                                        <?php echo " <td class = 'Text-center'>" .$row["year_of_publish"] ."</td>"; ?>
-                                        <?php echo " <td class = 'Text-center'>" .$row["edition"] ."</td>"; ?>
-                                        
-                                        </tr>
-                                    </tbody>
-
-                                <?php
-                                    }
-                                ?>
-                                </table>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Search</span>
+                                    <input type="text" name="search_text" id="search_text" oninput = "loadDoc(this)" placeholder="Search Here..." class="form-control" />
+                                </div>
                             </div>
+                            <br />
+                            <div id="result"></div>
+                    
+
+    <script>
+  function loadDoc(searchbar) {
+      console.log(searchbar.value)
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    console.log ("Response received")
+    console.log (this.responseText)
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("result").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "./php/search.php?query="+searchbar.value, true);
+  xhttp.send();
+}
+</script>
                         </div>
                     </div>
 
@@ -301,10 +286,42 @@ if(!empty($_SESSION['username']))
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+    <!---<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>--->
 
 </body>
 
 </html>
+<script>/*
+$(document).ready(function(){
+
+ load_data();
+
+ function load_data(query)
+ {
+  $.ajax({
+   url:"fetch.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});*/
+</script>
+
 <?php 
     }
     else{

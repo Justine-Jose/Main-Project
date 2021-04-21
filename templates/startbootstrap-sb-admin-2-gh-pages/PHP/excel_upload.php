@@ -25,11 +25,12 @@ foreach($objExcel->getWorksheetIterator() as $worksheet)
 		$usertype=$worksheet->getCellByColumnAndRow(7,$row)->getValue();
 		$username=$worksheet->getCellByColumnAndRow(8,$row)->getValue();
 		$password=$worksheet->getCellByColumnAndRow(9,$row)->getValue();
+		$password = MD5($password);
 		$role=$worksheet->getCellByColumnAndRow(10,$row)->getValue();
 		
 		if($username!='')
 		{
-			$sqli="INSERT INTO login(username,password,role) VALUES ('$username', MD5('$passwrd'),'$role')";
+			$sqli="INSERT INTO login(username,password,role) VALUES ('$username', '$password','$role')";
                 $result1=mysqli_query($con,$sqli);
 
 				$n=mysqli_insert_id($con);
