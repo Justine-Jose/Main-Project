@@ -1,12 +1,8 @@
 <?php
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
-
 session_start();
 
-if(!empty($_SESSION['username']))
-
-{
-    $temp = $_SESSION['username'];
+$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+//$name = $_SESSION['username'];
 
 ?>
 
@@ -21,7 +17,7 @@ if(!empty($_SESSION['username']))
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>E-Book </title>
+    <title>Report</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -56,7 +52,7 @@ if(!empty($_SESSION['username']))
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="user.php">
+                <a class="nav-link" href="index.html">
                     
                     <span>Dashboard</span></a>
             </li>
@@ -79,29 +75,13 @@ if(!empty($_SESSION['username']))
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
-                        <a class="collapse-item" href="issued_book.php">Issued Books</a>
-                        <a class="collapse-item" href="issued_book(Test).php">Issued Books(Test)</a>
-                        <a class="collapse-item" href="reservation_details.php">Reservation Details</a>
-                        <a class="collapse-item" href="user_searchbook.php">Search Books</a>
+                        <a class="collapse-item" href="#">Issued Books</a>
+                        <a class="collapse-item" href="#">Reservation Details</a>
                         <a class="collapse-item" href="#">Dues Archives</a>
-                        
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
-                    aria-expanded="true" aria-controls="collapseThree">
-                   <!--- <i class="fas fa-fw fa-cog"></i> --->
-                    <span>DIGITAL LIBRARY</span>
-                </a>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">E-BOOK</h6>
                         <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
                         <a class="collapse-item" href="user_ebook_download.php">Download E-Book</a>
-
-
+                    </div>
+                </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -116,12 +96,51 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
-                        <a class="collapse-item" href="user_report.php">Activities</a>
-                        
+                        <a class="collapse-item" href="#">Borders</a>
+                        <a class="collapse-item" href="#">Animations</a>
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>
                 </div>
             </li>
+
+            <!---<li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#One"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>--->
+                    <!---<span>E-BOOKS</span>
+                </a>
+                <div id="One" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Manage Book:</h6>
+                        <a class="collapse-item" href="ebook_add.php">UPLOAD NEW </a>
+                        <a class="collapse-item" href="#">USER UPLOADS</a>
+                        <a class="collapse-item" href="#">DETAILS</a>--->
+                       <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>--->
+                    <!---</div>
+                </div>
+            </li>--->
+
+            <!---<li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <!---<i class="fas fa-fw fa-wrench"></i>--->
+                    <!---span>ISSUE</span>
+                </a>
+                <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header" href = "#">Issue Books</h6>
+                        <a class="collapse-item" href="admin_issue book.php">Issue New Book</a>
+                        <a class="collapse-item" href="admin_return book.php">Return</a>
+                        <a class="collapse-item" href="#">Manage Issue</a>
+                        
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>--->
+                     <!---</div>
+                </div>
+            </li>--->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -268,64 +287,177 @@ if(!empty($_SESSION['username']))
                     
 
                     <!-- Content Row -->
-                    <div class="row">
-
-                        <div class="col-xl-8 col-lg-7">
-
-                            <!-- Area Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">UPLOAD NEW </h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>File Name</th>
-                                                    
-                                                    <th>ACTION</th>
-
-                                                </tr>
-                                        </thead>
-
-    
-
-    <tbody>
-        <?php
-       $sql = " SELECT * FROM `ebook_table`";
-       $result = mysqli_query($con,$sql);
-       $num = mysqli_num_rows($result);
-       $count = 1;
-
-       while($row = mysqli_fetch_array($result))
-
-       {
-
-     ?>
-                <tr>
-                        <td><?php echo $row['book_name']; ?></td>
-                        <?php //echo floor($file['book_size'] / 1000) . ' KB'; ?>
-                        <?php //echo $row['downloads'] ; ?>
+                    <div class="card shadow mb-4">
+                    <form method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/pdf_report.php">
+        <div class="col-md-12 bg-light text-right p-2">
+            <input type="submit" class="btn btn-primary" name = "generate" value = "Generate">
+        </div>
+        </form>
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Report-E-Book Uploads </h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+       
+       
+        <?php 
+            $name =$_SESSION["username"];
+            //$id = $_SESSION['l_id'];
+            //echo  $username;
+            $querry = "SELECT username FROM login where username = '$name";
+            $result = mysqli_query($con,$querry);
+            ?>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <?php 
+                            echo "<td>" .$name. "</td>";
+                        ?>
+                    </tr>
                     
-                        <?php echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/user_download.php?file_id=" .$row['ebook_id'] ." '>Download</a></td>"; ?>
-                </tr>
-                    <?php
-                    }
+                </thead>
+            </table>
+        
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Book Title</th>
+                         <th>Status</th>
+                    </tr>
+                </thead>
+    <?php
+
+            
+            $username =$_SESSION["username"];
+            $sql = "SELECT * FROM ebook_table where l_id = (select l_id from login where username='$username')";
+
+            $result = mysqli_query($con,$sql);
+            $num = mysqli_num_rows($result);
+            $count = 1;
+
+            while($row = mysqli_fetch_array($result))
+
+                {
                     ?>
+                    <tr>
+                        <?php 
+                           // echo "<td>" .$username ."</td>";
+                        ?>
+                    </tr>
+
+                    <tr>
+                    <?php
+                    echo "<td>" .$count++ ."</td>";
+                    echo "<td>" .$row["book_name"] ."</td>";
                     
+
                     
+                     if ($row['status']=='0')
+                        {  
+                                  echo "<td> Waiting for action </td>";
+                            
+                        }
+                
+                    
+                    elseif($row['status'] == 'Approved')
+                        {
+                            echo "<td>Approved</td>" ;
+                        }
+                    else {
+                        echo "<td> Rejected </td>" ;
+                    }
+                }
 
-                                                
-                                            
-                                </div>
-                            </div>
+    ?>
+            </table>
+        </form>
+    </div>
+    </div>
 
-                           
+                </div>
 
+                <!-- /.container-fluid -->
+
+            </div>
+            <div class="container-fluid">
+
+<!-- Page Heading -->
+
+
+<!-- DataTales Example -->
+
+    </div>
+    <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Issued Details</h6>
                         </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Book Title</th>
+                                            <th>Issued Date</th>
+                                            <th>Return Date</th>
+                                            <th>Status</th>
+                                            
+                                        </tr>
+                                    </thead>
+                            <?php
+                            
+                $sql = "SELECT a.book_title, a.book_id, b.book_id, b.l_id, b.issue_date, b.return_date, b.status, l.l_id, l.username 
+                        from book_table a, book_issue b, login l where b.l_id = l.l_id 
+                        and b.book_id = a.book_id and l.username = '$name'";
+                            
+                $result = mysqli_query($con,$sql);
+                $num = mysqli_num_rows($result);
+                $count = 1;
+    
+                            while($row = mysqli_fetch_array($result))
+                {
+                            ?>
+                
+                                        <tr>
+                                            <?php
+                                            echo "<td>" .$count++."</td>";
+                                            echo "<td>" .$row['book_title'] ."</td>";
+                                            echo "<td>" .$row['issue_date']. "</td>";
+                                            echo "<td>" .$row['return_date']. "</td>";
+                                            
+                                            if($row['status'] == '0')
+                                                {
+                                                    echo "<td> Not Returned </td>";
+                                                }
 
+                                            else{
+
+                                                echo "<td> Returned </td>";
+                                            }
+
+
+                                            //echo "<td>" .$row["second_author"] ."</td>";
+                                            //echo "<td>" .$row["third_author"] ."</td>";
+                                            //echo "<td>" .$row["year_of_publish"] ."</td>";
+                                            //echo "<td>" .$row["edition"] ."</td>";
+                                            //echo "<td>" .$row["category_name"]. "</td>";
+                                             
+                                            ?>
                         
+                                        </tr>
+                        <?php
+                                        
+                }
+                ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -371,9 +503,3 @@ if(!empty($_SESSION['username']))
 </body>
 
 </html>
-<?php 
-    }
-    else{
-        header("location: login.php");
-    }
-    ?>

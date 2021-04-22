@@ -41,7 +41,7 @@ $role= " ";
 					header("location:../Dashbord.php");
 
 				}
-				else if($rl == "User")
+				elseif($rl == "User")
 				{
 					$_SESSION["user"] = $row["username"];
 					$_SESSION["role"] = $row["role"];

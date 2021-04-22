@@ -1,22 +1,21 @@
-<?php
-session_start();
-
+<?php 
 $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+session_start();
+if(!empty($_SESSION['username']))
+
+    {
+        $temp = $_SESSION['username'];
+    
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-<script type="text/javascript">
-    window.history.forward();
-    function noBack()
-    {
-        window.history.forward();
-    }
-</script>
-
-<body onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+        
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,14 +25,17 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
     <title>Dashboard</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -50,14 +52,14 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
-                <div class="sidebar-brand-text mx-3">Library Management</div>
+                <div class="sidebar-brand-text mx-3">ibrary Management </div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="user.php">
                     
                     <span>User Dashboard</span></a>
@@ -66,10 +68,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <!---<div class="sidebar-heading">
+            <!-- Heading 
+            <div class="sidebar-heading">
                 Interface
-            </div>--->
+            </div>-->
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -128,55 +130,23 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-           <!--- <div class="sidebar-heading">
+            <!-- Heading 
+            <div class="sidebar-heading">
                 Addons
-            </div>--->
+            </div>-->
 
             <!-- Nav Item - Pages Collapse Menu -->
-           <!--- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>--->
-
+            
             <!-- Nav Item - Charts -->
-           <!--- <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>--->
-
-            <!-- Nav Item - Tables -->
-            <!---<li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>--->
+            
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-           
 
         </ul>
         <!-- End of Sidebar -->
@@ -191,28 +161,16 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
+                    
                     <!-- Topbar Search -->
-                   <!--- <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> --->
+                    
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                            
-                       
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        
+
                         <!-- Nav Item - Alerts -->
                       
 
@@ -222,41 +180,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
-                       <!-- <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> --->
-                                <?php
-                                $p = $_SESSION['username']; 
-                                echo $p;
-                                ?>
-                                </span>
-                                <!---<img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">--->
-                            </a></br>
-                            <a href = "PHP/logout.php" class="btn btn-danger">LOG OUT</a>  
-                            <!-- Dropdown - User Information -->
-                           <!--- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>--->
-                        </li>
+                        
 
                     </ul>
 
@@ -265,23 +189,54 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                
+
+                    <!-- Page Heading -->
+                   
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Search Books</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Search</span>
+                                    <input type="text" name="search_text" id="search_text" oninput = "loadDoc(this)" placeholder="Search Here..." class="form-control" />
+                                </div>
+                            </div>
+                            <br />
+                            <div id="result"></div>
+                    
+
+    <script>
+  function loadDoc(searchbar) {
+      console.log(searchbar.value)
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    console.log ("Response received")
+    console.log (this.responseText)
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("result").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "./php/search.php?query="+searchbar.value, true);
+  xhttp.send();
+}
+</script>
+                        </div>
+                    </div>
+
                 </div>
+                <!-- /.container-fluid -->
 
-                    
-
-                    
-                       
+            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-         <!--- <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>--->
+            
+            
             <!-- End of Footer -->
 
         </div>
@@ -326,17 +281,49 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
-
+    <!---<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>--->
 
 </body>
 
 </html>
+<script>/*
+$(document).ready(function(){
+
+ load_data();
+
+ function load_data(query)
+ {
+  $.ajax({
+   url:"fetch.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});*/
+</script>
+
+<?php 
+    }
+    else{
+        header("location: login.php");
+    }
