@@ -41,12 +41,19 @@ $role= " ";
 					header("location:../Dashbord.php");
 
 				}
-				else
+				else if($rl == "User")
 				{
 					$_SESSION["user"] = $row["username"];
 					$_SESSION["role"] = $row["role"];
 					header("location:../user.php");
 
+				}
+
+				else
+				{
+					$_SESSION["user"] = $row["username"];
+					$_SESSION["role"] = $row["role"];
+					header("location: ../faculty_dashbord.php");
 				}
 			} 
 			else {
