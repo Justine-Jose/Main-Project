@@ -36,7 +36,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
             $output .= "<tbody>
                 <tr>
                     <td>{$row['book_title']}</td>
-                    <td>{$row['book_author']} {$row['second_author']} {$row['third_author']}</td>
+                    <td>{$row['book_author']} </br> {$row['second_author']} </br>  {$row['third_author']}</td>
                     <td>{$row['year_of_publish']}</td>
                     <td>{$row['edition']}</td>
                     

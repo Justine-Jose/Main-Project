@@ -198,11 +198,13 @@ $name = $_SESSION['username'];
                         FROM tbl_penality p,  book_issue b";
                         $res = mysqli_query($con,$querry);
 
-                        $r = mysqli_fetch_array($res);
-                        $ret = $r['return_date'];
-                        $fin = $r['amount'];
+                        $row = mysqli_fetch_assoc($res);
+                        $ret = $row['return_date'];
+                        $return = strtotime($ret);
+                        $fin = $row['amount'];
                         $date = date("y-m-d");
-                        $diff = date_diff($date,$date);
+                        $d = strtotime($date);
+                        $diff = date_diff($return,$d);
 
                         if ($date > $return)
                         {

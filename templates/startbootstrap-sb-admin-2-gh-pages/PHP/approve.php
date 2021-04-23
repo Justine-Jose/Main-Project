@@ -23,7 +23,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     while($row = mysqli_fetch_assoc($result))
     {
        
-        $querry = "UPDATE ebook_table set status = 'Approved' WHERE l_id = $a";
+        $querry = "UPDATE ebook_table set status = 'Approved' WHERE ebook_id = $a";
         $res = mysqli_query($con,$querry);
        
 

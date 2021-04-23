@@ -198,11 +198,19 @@ if(!empty($_SESSION['username']))
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Search Books</h6>
+                             <div class = "text-right" style = "padding-top: 15px;">
+                                <button class = "btn btn-sm btn-primary" style = "cursor:default"> 
+                                    Books Allowed
+                                    <span class = "badge badge-danger">5</span>
+                                    </button>
+                                <a href = "issued_book.php" class  ="btn btn-sm btn-info" style = "cursor:default"> 
+                                    Books Issued</a>
+                             </div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Search</span>
+                                    <!--<span class="input-group-addon">Search</span>-->
                                     <input type="text" name="search_text" id="search_text" oninput = "loadDoc(this)" placeholder="Search Here..." class="form-control" />
                                 </div>
                             </div>

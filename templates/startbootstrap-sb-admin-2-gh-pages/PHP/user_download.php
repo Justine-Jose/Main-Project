@@ -14,7 +14,7 @@
             $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
      
             // Fetch the file information
-            $query = "SELECT * FROM ebook_table WHERE ebook_id  = $id";
+            $query = "SELECT * FROM ebook_table WHERE ebook_id  = $id and status = 'Approved'";
             $result=mysqli_query($con,$query);
             $num = mysqli_num_rows($result);
             
@@ -26,8 +26,8 @@
                     
                     $type=$row['filetype'];
                     $size=$row['filesize'];
-                    $filename=$row['filename'];
-                    $data=$row['filecontent'];
+                    $filename=$row['book_name'];
+                   // $data=$row['filecontent'];
 
                     
 // Print headers

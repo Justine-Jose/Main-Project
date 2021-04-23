@@ -269,9 +269,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                              //echo "<td>" .$row["ebook_id "] ."</td>";
                                              //echo "<td>" .$row["status"] ."</td>";?>
                                              <!---<td><input type = "hidden" name ="l_id" value ="<?php //echo $row['l_id']; ?>" </td>--->
-                                             <?php echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/approve.php?x=" .$row['l_id']. " ' class = 'btn btn-success btn-sm'><i class='fa fa-check' aria-hidden='true'></i></a></a>"; 
+                                             <?php echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/approve.php?x=" .$row['ebook_id']. " ' class = 'btn btn-success btn-sm'><i class='fa fa-check' aria-hidden='true'></i></a></a>"; 
                                              
-                                             echo "<a href='../startbootstrap-sb-admin-2-gh-pages/PHP/reject.php?y=" .$row['l_id']. "' class = 'btn btn-danger btn-sm' aria-label= 'Left Align'>  <i class='fa fa-times' aria-hidden='true'></i></a>";
+                                             echo "<a href='../startbootstrap-sb-admin-2-gh-pages/PHP/reject.php?y=" .$row['ebook_id']. "' class = 'btn btn-danger btn-sm' aria-label= 'Left Align'>  <i class='fa fa-times' aria-hidden='true'></i></a>";
                                              ?>
                                              
                                              
