@@ -103,9 +103,29 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <h6 class="collapse-header">E-BOOK</h6>
                         <a class="collapse-item" href="faculty_ebook_add.php">Contribute Your E-Book</a>
                         <a class="collapse-item" href="#">Download E-Book</a>
+                    </div>
+                </div>
 
 
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefour"
+                    aria-expanded="true" aria-controls="collapsefour">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>RECOMMEND</span>
+                </a>
+                <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Recomend Books</h6>
+                        <a class="collapse-item" href="faculty_recommend.php">Recommend For Reference</a>
+                        <a class="collapse-item" href="#">Download E-Book</a>
+                    </div>
+                </div>
+
+
+            </li>
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

@@ -68,7 +68,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="usefaculty_dashbordr.php">
+                <a class="nav-link" href="faculty_dashbord.php">
                     
                     <span>FACULTY DASHBORD</span></a>
             </li>
@@ -112,6 +112,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <h6 class="collapse-header">E-BOOK</h6>
                         <a class="collapse-item" href="faculty_ebook_add.php">Contribute Your E-Book</a>
                         <a class="collapse-item" href="#">Download E-Book</a>
+                    </div>
+                </div>
 
 
             </li>
@@ -134,6 +136,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     </div>
                 </div>
             </li>
+
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -276,7 +280,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
         ?>
                 
                 <div class ="form-group">
-                    <label>Student ID :</label>
+                    <label>Register ID :</label>
                     <?php 
                     echo " " .$row["l_id"];
                     ?> 
@@ -297,7 +301,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 </div>
 
                 <div class ="form-group">
-                    <label>Student Name :</label>
+                    <label>Name :</label>
                                     
                     <input class="form-control" type="text" name="fullanme" autocomplete="off" value= "<?php echo " " .$row["m_name"];?>" >
 
