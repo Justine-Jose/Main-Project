@@ -37,7 +37,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Dashbord.php">
             <div class="sidebar-brand-icon rotate-n-15">
                     <!---<i class="fas fa-laugh-wink"></i>--->
                 </div>
@@ -49,7 +49,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="Dashbord.php">
                     
                     <span>Dashboard</span></a>
             </li>
@@ -116,6 +116,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     </div>
                 </div>
             </li>
+
 
 
             <li class="nav-item">
