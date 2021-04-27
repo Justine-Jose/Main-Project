@@ -2,42 +2,7 @@
 session_start();
 
 $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
-//echo ($_POST('bookname'));
-/*if(isset($_POST['add']));
-{
-    $bname =$_POST['bookname'];
-    $author = $_POST['author'];
-    $second_author = $_POST['secondauthor'];
-    $third_author = $_POST['thirdauthor'];
-    $pages = $_POST['pagenumber'];
-    $purchase = $_POST['purchasedate'];
-    $publish = $_POST['publish_year'];
-    $edition = $_POST['edition'];
-    $isbn = $_POST['isbnno'];
-    $category = $_POST['category'];
-    $price = $_POST['price'];
 
-
-    $sq = "INSERT INTO book_table (category_id,book_title,book_author,
-            second_author,third_author,year_of_publish,edition,book_status) VALUES 
-            ((SELECT category_id from book_category WHERE category_name = '$category'),'$bname',' $author','$second_author','$third_author',$publish,'$edition','Active')";
-
-         
-         $res=mysqli_query($con,$sq);
-         
-    
-    $sql1 = "INSERT INTO book_details (book_id,book_price,number_of_page,date_of_purchase,isbn_no)
-                VALUES ((SELECT book_id FROM book_table WHERE book_title = '$bname'), $price ,$pages,' $purchase','$isbn')";
-         
-         if(mysqli_query($con,$sql1))
-
-            {
-                ?>
-                <script> alert ("Book Details Successfully Inserted");
-                </script>
-                <?php
-            }
-}*/
 
 ?>
 
@@ -87,7 +52,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="Dashbord.php">
                 
                     <span>BOOKS</span></a>
             </li>
@@ -112,6 +77,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <h6 class="collapse-header">User Management:</h6>
                         <a class="collapse-item" href="add_user.php">Add New User</a>
                         <a class="collapse-item" href="manage_user.php">Manage User</a>
+                        <a class="collapse-item" href="admin_excel_upload.php">Excel Upload</a>
                     </div>
                 </div>
             </li>
@@ -130,8 +96,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <a class="collapse-item" href="add_book.php">Add New Books</a>
                         <a class="collapse-item" href="admin_view Books.php">Manage Book</a>
                         <a class="collapse-item" href="admin purchase book details.php">Purchase Details</a>
-                       <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>--->
+                        <a class="collapse-item" href="add_category.php">New Category</a>
+                        <a class="collapse-item" href="mail_page.php">Order New Books</a>
+                        <!---<a class="collapse-item" href="utilities-other.html">Other</a>--->
                     </div>
                 </div>
             </li>
@@ -147,7 +114,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Manage Book:</h6>
                         <a class="collapse-item" href="ebook_add.php">UPLOAD NEW </a>
-                        <a class="collapse-item" href="#">USER UPLOADS</a>
+                        <a class="collapse-item" href="admin_approve_ebook.php">USER UPLOADS</a>
+                        <a class="collapse-item" href="admin_approve_ebook_test.php">USER UPLOADS(TEST)</a>
                         <a class="collapse-item" href="#">DETAILS</a>
                        <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>--->
@@ -167,7 +135,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <h6 class="collapse-header" href = "#">Issue Books</h6>
                         <a class="collapse-item" href="admin_issue book.php">Issue New Book</a>
                         <a class="collapse-item" href="admin_return book.php">Return</a>
-                        <a class="collapse-item" href="#">Manage Issue</a>
+                        <a class="collapse-item" href="admin_manage_issuebook.php">Manage Issue</a>
                         
                        <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>--->

@@ -50,7 +50,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="Dashbord.php">
                     
                     <span>Dashboard</span></a>
             </li>
@@ -94,11 +94,13 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <a class="collapse-item" href="add_book.php">Add New Books</a>
                         <a class="collapse-item" href="admin_view Books.php">Manage Book</a>
                         <a class="collapse-item" href="admin purchase book details.php">Purchase Details</a>
-                       <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>--->
+                        <a class="collapse-item" href="add_category.php">New Category</a>
+                        <a class="collapse-item" href="mail_page.php">Order New Books</a>
+                        <!---<a class="collapse-item" href="utilities-other.html">Other</a>--->
                     </div>
                 </div>
             </li>
+
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#One"
@@ -112,12 +114,14 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <h6 class="collapse-header">Manage Book:</h6>
                         <a class="collapse-item" href="ebook_add.php">UPLOAD NEW </a>
                         <a class="collapse-item" href="admin_approve_ebook.php">USER UPLOADS</a>
+                        <a class="collapse-item" href="admin_approve_ebook_test.php">USER UPLOADS(TEST)</a>
                         <a class="collapse-item" href="#">DETAILS</a>
                        <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>--->
                     </div>
                 </div>
             </li>
+
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
@@ -131,7 +135,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <h6 class="collapse-header" href = "#">Issue Books</h6>
                         <a class="collapse-item" href="admin_issue book.php">Issue New Book</a>
                         <a class="collapse-item" href="admin_return book.php">Return</a>
-                        <a class="collapse-item" href="#">Manage Issue</a>
+                        <a class="collapse-item" href="admin_manage_issuebook.php">Manage Issue</a>
                         
                        <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>--->
