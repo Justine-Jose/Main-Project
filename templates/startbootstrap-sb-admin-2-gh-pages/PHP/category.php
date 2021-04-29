@@ -6,9 +6,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
     
     $category = $_POST['category'];
-    $st = $_POST['status'];
+    //$st = $_POST['status'];
 
-    $sql = "INSERT into book_category (category_name,status) VALUES ('$category','$st')";
+    $sql = "INSERT into book_category (category_name,status) VALUES ('$category','Active')";
 
     if (mysqli_query($con, $sql)) 
     {
