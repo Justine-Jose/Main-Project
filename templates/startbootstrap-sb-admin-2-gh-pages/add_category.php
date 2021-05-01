@@ -221,6 +221,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                    </div>
 
                    <div class="col-md-9 col-sm-6 col-xs-6">
+                   
                       <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Category</h6>

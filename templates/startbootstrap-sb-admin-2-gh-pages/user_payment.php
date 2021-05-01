@@ -1,30 +1,28 @@
-<?php
-session_start();
-
+<?php 
 $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+session_start();
+if(!empty($_SESSION['username']))
+
+    {
+        $temp = $_SESSION['username'];
+    
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-<script type="text/javascript">
-    window.history.forward();
-    function noBack()
-    {
-        window.history.forward();
-    }
-</script>
-
-<body onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Dashboard</title>
+    
+    <title>Payment</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,9 +46,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="user.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    
+                  
                 </div>
-                <div class="sidebar-brand-text mx-3">Library Management</div>
+                <div class="sidebar-brand-text mx-3">Library Management </div>
             </a>
 
             <!-- Divider -->
@@ -67,10 +65,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <!---<div class="sidebar-heading">
-                Interface
-            </div>--->
-
+           
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -91,7 +86,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 </div>
             </li>
 
-
+            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
                     aria-expanded="true" aria-controls="collapseThree">
@@ -106,7 +101,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
 
             </li>
-            <!-- Nav Item - Utilities Collapse Menu -->
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -126,58 +121,26 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 </div>
             </li>
 
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-           <!--- <div class="sidebar-heading">
-                Addons
-            </div>--->
-
+            
             <!-- Nav Item - Pages Collapse Menu -->
-           <!--- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>--->
-
+            
             <!-- Nav Item - Charts -->
-           <!--- <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>--->
+            
 
             <!-- Nav Item - Tables -->
-            <!---<li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>--->
-
+            
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-           
 
         </ul>
         <!-- End of Sidebar -->
@@ -197,67 +160,22 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     </button>
 
                     <!-- Topbar Search -->
-                   <!--- <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> --->
+                    
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                            
-                       
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        
+
                         <!-- Nav Item - Alerts -->
-                      
+                       
 
                         <!-- Nav Item - Messages -->
-                       
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        
 
                         <!-- Nav Item - User Information -->
-                       <!-- <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> --->
-                                <?php
-                                $p = $_SESSION['username']; 
-                                echo $p;
-                                ?>
-                                </span>
-                                <!---<img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">--->
-                            </a></br>
-                            <a href = "PHP/logout.php" class="btn btn-danger">LOG OUT</a>  
-                            <!-- Dropdown - User Information -->
-                           <!--- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>--->
-                        </li>
+                        
 
                     </ul>
 
@@ -266,23 +184,64 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                
+                    <div class="row g-0">
+                            <div class="col-md-4">
+                            <img
+                                src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGF5bWVudHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                                alt="..."
+                                class="img-fluid"
+                            />
+                            </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="card">
+                            <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Payment</h6>
+                                 </div>
+                            <div class="card-body">
+                            
+                            <form name = "signup" method = "POST" action="php/patment.php">
+                                        <div class ="form-group">
+                                            <label>Name On Card</label>
+                                            <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "John Dom" required>
+                                        </div> 
+                                        <div class ="form-group">
+                                            <label>Exp Month</label>
+                                            <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "January" required>
+                                        </div> 
+                                        <div class ="form-group">
+                                            <label>CVV</label>
+                                            <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "888" required>
+                                        </div> 
+                                        <div class ="form-group">
+                                            <label>EXP Year</label>
+                                            <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "2022" required>
+                                        </div> 
+                                    <input type = "Submit" class="btn btn-primary btn-sm" name = "create" value = "Pay">
+                                    
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+    </div>
+                        <!---<div class="col-sm-6">
+                            <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>--->
+
                 </div>
+                <!-- /.container-fluid -->
 
-                    
-
-                    
-                       
+            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-         <!--- <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>--->
+           
             <!-- End of Footer -->
 
         </div>
@@ -326,18 +285,13 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/datatables-demo.js"></script>
-
-
 </body>
 
 </html>
+
+<?php 
+    }
+    else{
+        header("location: login.php");
+    }
+?>
