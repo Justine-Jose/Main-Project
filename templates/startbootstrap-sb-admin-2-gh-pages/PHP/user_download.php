@@ -24,8 +24,8 @@
                 // Get the row
                     $row = mysqli_fetch_assoc($result);
                     
-                    $type=$row['filetype'];
-                    $size=$row['filesize'];
+                    //$type=$row['filetype'];
+                    $size=$row['book_size'];
                     $filename=$row['book_name'];
                    // $data=$row['filecontent'];
 

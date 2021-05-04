@@ -199,7 +199,7 @@ if(!empty($_SESSION['username']))
                                  </div>
                             <div class="card-body">
                             
-                            <form name = "signup" method = "POST" action="php/patment.php">
+                            <form name = "signup" method = "POST" action="php/payment.php">
                                         <div class ="form-group">
                                             <label>Name On Card</label>
                                             <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "John Dom" required>

@@ -84,6 +84,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                 </div>
                                 
                             </div>
+                                <div class="col-lg-6">
+                                    <img src = "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGlicmFyeXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                                </div>
+
                         </div>
                     </div>
                 </div>

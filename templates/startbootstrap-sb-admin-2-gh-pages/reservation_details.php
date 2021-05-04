@@ -182,78 +182,35 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                 </form>--->
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                             
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                   <form mathod = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php">
-                                
-                                <thead>
-                                        <tr>
-                                            <th>Number</th>
-                                            <th>Book Title</th>
-                                            <th>Published Year</th>
-                                            <th>Edition</th>
-                                            <th>Action</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Number</th>
-                                            <th>Book Title</th>
-                                            <th>Published Year</th>
-                                            <th>Edition</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                        <?php
-
-                        $sql = "SELECT * from book_table";
-                        $result = mysqli_query($con,$sql);
-                        $num = mysqli_num_rows($result);
-                        $count = 1;
-
-                        while($row = mysqli_fetch_array($result))
-
-                        
-                        {
-
-     
-
-
-
-                        ?>
-                                    <tbody>
-                                        <tr>
-                                        
-                                        <?php echo "<td class = 'Text-center'>" .$count++ ."</td>"; ?>
-                                        <!---<td class = "Text-center">--->
-                                            <!---<div class = "form-group">--->
-                                                <!---<input  type ="text" name = "book_title" id = "book_title" readonly="readonly" value = "---><?php 
-                                                 echo " <td class = 'Text-center'>" .$row["book_title"] ."</td>";
-                                                ?>
-                                            <!---</div>
-                                        </td>--->
-                                        <?php echo  "<td class = 'Text-center'>".$row["year_of_publish"] ."</td>"; ?>
-                                        <?php echo  "<td class = 'Text-center'>".$row["edition"] ."</td>"; ?>
-                                        <?php echo "<td class = 'Text-center'> <a href='../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php?x=" .$row['book_id']. " '> Reserve</a>";
-                                        
-                                        //<input type = 'Submit' class = 'btn btn-success btn-sm' name = 'reserve' value = 'Reserve'></td>"; ?>
-                                            
-                                        </tr>
-                        <?php
-                        }
-                        ?>
-                                        
-                                         </tbody>
-                                    <!---</form>--->
-                                </table>
+                        <div class="form-group">
+                                <div class="input-group">
+                                    <!--<span class="input-group-addon">Search</span>-->
+                                    <input type="text" name="search_text" id="search_text" oninput = "loadDoc(this)" placeholder="Search Here By Title, Author..." class="form-control" />
+                                </div>
                             </div>
+                            <br />
+                            <div id="result"></div>
                         </div>
                     </div>
 
                 </div>
                 <!-- /.container-fluid -->
+
+                <script>
+  function loadDoc(searchbar) {
+      console.log(searchbar.value)
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    console.log ("Response received")
+    console.log (this.responseText)
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("result").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "./php/reserve_user.php?query="+searchbar.value, true);
+  xhttp.send();
+}
+</script>
 
             </div>
             <!-- End of Main Content -->
