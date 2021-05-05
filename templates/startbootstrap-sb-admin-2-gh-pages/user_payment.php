@@ -205,16 +205,20 @@ if(!empty($_SESSION['username']))
                                             <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "John Dom" required>
                                         </div> 
                                         <div class ="form-group">
+                                            <label>Card Number</label>
+                                            <input type ="text" class = "form-control" name="cardno" autocomplete="off" placeholder = "John Dom" required>
+                                        </div> 
+                                        <div class ="form-group">
                                             <label>Exp Month</label>
-                                            <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "January" required>
+                                            <input type ="text" class = "form-control" name="expmonth" autocomplete="off" placeholder = "January" required>
                                         </div> 
                                         <div class ="form-group">
                                             <label>CVV</label>
-                                            <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "888" required>
+                                            <input type ="text" class = "form-control" name="cvv" autocomplete="off" placeholder = "888" required>
                                         </div> 
                                         <div class ="form-group">
                                             <label>EXP Year</label>
-                                            <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "2022" required>
+                                            <input type ="text" class = "form-control" name="year" autocomplete="off" placeholder = "2022" required>
                                         </div> 
                                     <input type = "Submit" class="btn btn-primary btn-sm" name = "create" value = "Pay">
                                     
