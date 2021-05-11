@@ -25,6 +25,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+     <!-- Custom styles for this page -->
+     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -349,6 +352,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                             <th>Author</th>
                                             <th>Year Of Publish </th>
                                             <th>Edition</th>
+                                            <th>Count of book</th>
                                             <th>Edit </th>
                                         </tr>
                                     </thead>
@@ -360,13 +364,14 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                             <th>Author</th>
                                             <th>Year Of Publish </th>
                                             <th>Edition</th>
+                                            <th>Count of book</th>
                                             <th>Edit </th>
                                         </tr>
                                     </tfoot>
                             <?php
                             $sql = "SELECT b.book_id, b.category_id, b.book_title, b.book_author, b.second_author,
-                                    b.third_author,b.year_of_publish, b.edition, b.book_status, c.category_name 
-                                    FROM book_table b,book_category c WHERE b.category_id = c.category_id";
+                                    b.third_author,b.year_of_publish, b.book_count, b.edition, b.book_status, c.category_name 
+                                    FROM book_table b,book_category c WHERE b.category_id = c.category_id and b.book_status = 'Active'";
 
                 $result=mysqli_query($con,$sql);
                 $num=mysqli_num_rows($result);
@@ -386,6 +391,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                           
                                             echo "<td>" .$row["year_of_publish"] ."</td>";
                                             echo "<td>" .$row["edition"] ."</td>";
+                                            echo "<td>" .$row["book_count"] ."</td>" ;
                                             echo "<td class = 'Text-center'> <a href='admin_edit_book.php?x=" .$row['book_id']. " ' class = 'btn btn-danger btn-sm'> EDIT</a>";
                                             //echo "<td>" .$row["category_name"]. "</td>";
                                              
@@ -488,6 +494,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <!-- Page level plugins -->
    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
 </body>
 
 </html>

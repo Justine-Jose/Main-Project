@@ -308,7 +308,8 @@ if(!empty($_SESSION['username']))
                         <?php //echo floor($file['book_size'] / 1000) . ' KB'; ?>
                         <?php //echo $row['downloads'] ; ?>
                     
-                        <?php echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/user_download.php?file_id=" .$row['ebook_id'] ." '>Download</a></td>"; ?>
+                        <?php //echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/user_download.php?file_id=" .$row['ebook_id'] ." '>Download</a></td>"; ?>
+                        <td><a href='../startbootstrap-sb-admin-2-gh-pages/uploads/<?php echo $row['book_name'];?>' download >Download</a></td>
                 </tr>
                     <?php
                     }

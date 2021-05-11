@@ -2,6 +2,8 @@
 session_start();
 
 $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+//$t = $_GET['x'];
+//die($t);
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +17,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Add-Book-Category</title>
+    <title>EDIT BOOK</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -460,6 +462,13 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                             </div>
                         </div>--->
                     </div>
+<script>
+//function update(id){
+//	var frm = document.getElementById("frmm")
+//	frm.setAttribute("action","../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php?id="+id);
+//	frm.submit();
+//}
+</script>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -468,15 +477,20 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <form name = "signup" method = "POST" action="../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php">
+                                    <form name = "frmm" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php" >
 
+                                    
+                    
                     <?php
+     if(isset($_REQUEST['x']))
+    {
+       $a=intval($_GET['x']);
 
-                        $sql = "SELECT * FROM book_table";
+                        $sql = "SELECT * FROM book_table where book_id = $a";
 
                         $result = mysqli_query($con,$sql);
 
-                        while ($row = mysqli_fetch_array($result))
+                        while ($row = mysqli_fetch_assoc($result))
 
                         {
 
@@ -485,38 +499,61 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                     
                                         <div class ="form-group">
                                             <label>Book Title</label>
-                                            <input type ="text" class = "form-control" name="category" autocomplete="off" required>
+                                            <input type ="hidden" class = "form-control" name="bid" autocomplete="off" required value="<?php echo " ".$row['book_id']; ?>">
+                                            <!---<input type="text"  name="amountt"  id="amount" >--->
+                                            <input type ="text" class = "form-control" name="title" autocomplete="off" required value = "<?php echo " ".$row["book_title"];?>">
                                         </div> 
 
                                         <div class ="form-group">
                                             <label>Author</label>
-                                            <input type ="text" class = "form-control" name="category" autocomplete="off" required>
+                                            <input type ="text" class = "form-control" name="author" autocomplete="off" required value = "<?php echo " ".$row["book_author"];?> ">
                                         </div> 
+
+                                        <div class = "form-group">
+                                            <label>Second Author</label>
+                                            <input type = "text" class = "form-control" name = "sauthor" required value = "<?php echo "" . $row["second_author"];?>">
+                                        </div>
+
+                                        <div class = "form-group">
+                                            <label>Third Author</label>
+                                            <input type = "text" class = "form-control" name = "tauthor" required value = "<?php echo "" .$row["third_author"] ;?>">
+                                        </div>
+
 
                                         <div class ="form-group">
                                             <label>Year of Publish</label>
-                                            <input type ="text" class = "form-control" name="category" autocomplete="off" required>
+                                            <input type ="text" class = "form-control" name="publish" autocomplete="off" required value = "<?php echo " ".$row["year_of_publish"];?>">
                                         </div> 
 
                                         <div class ="form-group">
                                             <label>Edition</label>
-                                            <input type ="text" class = "form-control" name="category" autocomplete="off" required>
+                                            <input type ="text" class = "form-control" name="edition" autocomplete="off" required value = "<?php echo " ".$row["edition"];?>">
                                         </div> 
 
                                         <div class ="form-group">
                                             <label>ISBN NO</label>
-                                            <input type ="text" class = "form-control" name="category" autocomplete="off" required>
+                                            <input type ="text" class = "form-control" name="isbn" autocomplete="off" required value = "<?php echo " ".$row["isbn_no"];?>">
                                         </div> 
+                                        <?php
+                                            //echo "<a href = '../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php?y=" .$row['book_id']. " ' class = 'btn btn-danger brn-sm' name = 'update'>Update</a>";
+
+                                        ?>
 
                                         
                         <?php
                         }
+
+                    }
                         ?>
 
                                         
-                                        <input type = "Submit" class="btn btn-outline-primary btn-lg" name = "create" value = "Create">
+                                        <!---<input type = "Submit" class="btn btn-danger btn-lg" name = "create" value =  "<?php // id= '.$a.'; ?>" onclick="update(this.id)" >--->
+                                        <input type = "Submit" class="btn btn-danger btn-lg" name = "create" value =   "Update" >
+                                        
+                                        <!---<input type="submit" value="Edit"  >--->
                                     
                                 </table>
+                </form>
                             </div>
                         </div>
                     
