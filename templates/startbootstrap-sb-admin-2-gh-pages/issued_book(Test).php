@@ -194,7 +194,7 @@ $name = $_SESSION['username'];
                                     </thead>
                                     
                         <?php
-                        $querry = "SELECT p.l_id, p.issue_id, p.amount, b.issue_id, b.l_id, b.issue_date, b.return_date 
+                       /* $querry = "SELECT p.l_id, p.issue_id, p.amount, b.issue_id, b.l_id, b.issue_date, b.return_date 
                         FROM tbl_penality p,  book_issue b";
                         $res = mysqli_query($con,$querry);
 
@@ -220,7 +220,7 @@ $name = $_SESSION['username'];
                             else {
                                 $fin = $diff * 5;
                             }
-                        }
+                        }*/
 
                         $sql = "SELECT a.book_title, a.book_id, b.book_id, b.l_id, b.issue_date, b.return_date, l.l_id, l.username 
                         from book_table a, book_issue b, login l where b.l_id = l.l_id 
@@ -228,7 +228,8 @@ $name = $_SESSION['username'];
                         $result = mysqli_query($con,$sql);
                         $num = mysqli_num_rows($result);
                         $count = 1;
-
+                        $date = date('Y-m-d');
+                        echo $date;
                         while($row = mysqli_fetch_array($result))
 
                         
@@ -246,7 +247,24 @@ $name = $_SESSION['username'];
                                         <?php echo "<td class = 'Text-center'>" .$row['book_title'] ."</td>";?>
                                         <?php echo "<td class = 'Text-center'>" .$row['issue_date'] ."</td>";?>
                                         <?php echo "<td class = 'Text-center'>" .$row['return_date'] ."</td>";?>
-                                        <?php echo "<td class = 'Text-center'>" .$fin ."</td>";?>
+                                        <?php 
+                                            if($row['return_date'] < $date)
+                                                {
+                                                    //$fin = 0;
+                                           // if($row['return_date'] > $date)
+                                                    $returndate = new DateTime($row['return_date']);
+                                                    $date1 = new DateTime();
+                                                    $diff = $returndate->diff($date1)->format("%d");
+                                                    echo  $diff;
+                                                    $fin = $diff * 2;
+
+                                                    echo "<td class = 'Text-center'>" .$fin ."</td>";
+                                                }
+                                            else{
+                                                echo "<td class = 'Text-center'>" . 0 ."</td>";
+                                            }
+                                        ?>
+                                        <?php ?>
                                             
                                         </td>
                                         <?php //echo  "<td class = 'Text-center'>".$row["year_of_publish"] ."</td>"; ?>

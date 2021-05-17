@@ -30,17 +30,46 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     <th>Author</th>
                     <th>Year of Publish</th>
                     <th>Edition</th>
+                    <th>Book Count</th>
                 </tr>
             </thead>";
             while ($row = mysqli_fetch_assoc($query)) {
-            $output .= "<tbody>
+                if($row['book_count'] != 0)
+                {
+                    $output .= "<tbody>
                 <tr>
                     <td>{$row['book_title']}</td>
                     <td>{$row['book_author']} </br> {$row['second_author']} </br>  {$row['third_author']}</td>
                     <td>{$row['year_of_publish']}</td>
                     <td>{$row['edition']}</td>
+                   <td>{$row['book_count']}</td>";
+                }
+            else {
+                $output .= "<tbody>
+                <tr>
+                    <td>{$row['book_title']}</td>
+                    <td>{$row['book_author']} </br> {$row['second_author']} </br>  {$row['third_author']}</td>
+                    <td>{$row['year_of_publish']}</td>
+                    <td>{$row['edition']}</td>
+                   <td>Not Available </td>";
+            }
+            //$output .= "<tbody>
+                /*<tr>
+                    <td>{$row['book_title']}</td>
+                    <td>{$row['book_author']} </br> {$row['second_author']} </br>  {$row['third_author']}</td>
+                    <td>{$row['year_of_publish']}</td>
+                    <td>{$row['edition']}</td>
+                   <td>{$row['book_count']}</td>";
+                  if($row['book_count'] != 0)
+                    {
+                        "<td>{$row['book_count']}</td>";
+                       
+                    }
+                else {
+                    echo "<td>No Book Available </td>";
+                }*/
                     
-                </tr>
+                "</tr>
                 </tbody>";
             }
         $output .="</table>";

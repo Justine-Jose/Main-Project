@@ -30,6 +30,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     <th>Author</th>
                     <th>Year of Publish</th>
                     <th>Edition</th>
+                    <th>Book Count</th>
                     <th>Action</th>
                 </tr>
             </thead>";
@@ -40,6 +41,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     <td>{$row['book_author']} </br> {$row['second_author']} </br>  {$row['third_author']}</td>
                     <td>{$row['year_of_publish']}</td>
                     <td>{$row['edition']}</td>
+                    <td>{$row['book_count']}</td>
                     <td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php?x=" .$row['book_id']. " '> Reserve</a></td>
                     
                 </tr>

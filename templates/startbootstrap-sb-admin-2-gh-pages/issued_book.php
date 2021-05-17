@@ -197,9 +197,9 @@ $name = $_SESSION['username'];
                         $querry = "SELECT * FROM tbl_penality";
                         $res = mysqli_query($con,$querry);
 
-                        $sql = "SELECT a.book_title, a.book_id, b.book_id, b.l_id, b.issue_date, b.return_date, l.l_id, l.username 
+                        $sql = "SELECT a.book_title, a.book_id, b.book_id, b.l_id, b.issue_date, b.return_date, b.status, l.l_id, l.username 
                         from book_table a, book_issue b, login l where b.l_id = l.l_id 
-                        and b.book_id = a.book_id and l.username = '$name'";
+                        and b.book_id = a.book_id and l.username = '$name' and b.status = '0'";
                         $result = mysqli_query($con,$sql);
                         $num = mysqli_num_rows($result);
                         $count = 1;
