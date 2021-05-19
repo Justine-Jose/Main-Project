@@ -464,7 +464,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">STUDENTS</h6>
+                                <div class = "text-right" style = "padding-top: 15px;">
+                                    <a href = "PHP/userdata_excel.php" class = "btn btn-primary btn-sm"  style = "cursor:default" >Report</a>
+                                </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -488,7 +491,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         //$department = $_POST["department"];
                         
 
-                        $sql = "SELECT library_no,m_name,m_email,gender,m_dept,m_status  from member_registration ";
+                        $sql = "SELECT library_no,m_name,m_email,gender,m_dept,m_status  from member_registration where user_type = 'User' ";
                         $result =mysqli_query($con,$sql);
                         $num=mysqli_num_rows($result);
                         if ($num > 0) 
