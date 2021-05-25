@@ -78,7 +78,6 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <h6 class="collapse-header">User Management:</h6>
                         <a class="collapse-item" href="add_user.php">Add New User</a>
                         <a class="collapse-item" href="manage_user.php">Manage User</a>
-                        <a class="collapse-item" href="manage_faculty.php">ManageF</a>
                         <a class="collapse-item" href="admin_excel_upload.php">Excel Upload</a>
                     </div>
                 </div>
@@ -464,12 +463,12 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                             </div>
                         </div>--->
                     </div>
+                   
                             <input type ="button"  class = "btn btn-primary btn sm" name = "stu" id ="st" value = "Student" style = "margin-top: 15px;">
                             <input type ="button" class = "btn btn-primary btn sm" name = "fac" id ="f" value = "Faculty" style = "margin-top: 15px;">
                                 <script>
-                                        $('#f').click(function(){
-                                            //alert("Working");
-                                            $('#content').load(manage_faculty.php);
+                                        $('#st').click(function(){
+                                            $('#content').load(manage_user.php);
                                         });
                                 </script>
                     <div class="card shadow mb-4">
@@ -481,7 +480,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <div id = "content"></div>
+                                
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -502,7 +501,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         //$department = $_POST["department"];
                         
 
-                        $sql = "SELECT library_no,m_name,m_email,gender,m_dept,m_status  from member_registration where user_type = 'User' ";
+                        $sql = "SELECT library_no,m_name,m_email,gender,m_dept,m_status  from member_registration where user_type = 'Faculty' ";
                         $result =mysqli_query($con,$sql);
                         $num=mysqli_num_rows($result);
                         if ($num > 0) 
@@ -534,6 +533,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                             </div>
                         </div>
                     </div>
+                    <div id = "content"></div>
 
 
                 </div>
