@@ -18,6 +18,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <title>Edit User </title>
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>        
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -465,12 +466,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     </div>
                    
                             <input type ="button"  class = "btn btn-primary btn sm" name = "stu" id ="st" value = "Student" style = "margin-top: 15px;">
-                            <input type ="button" class = "btn btn-primary btn sm" name = "fac" id ="f" value = "Faculty" style = "margin-top: 15px;">
-                                <script>
-                                        $('#st').click(function(){
-                                            $('#content').load(manage_user.php);
-                                        });
-                                </script>
+                            <button class = "btn btn-primary btn sm" name = "fac" id ="loadfaculty" onclick="loadDoc()" style = "margin-top: 15px;">Faculty</button>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">STUDENTS</h6>
@@ -479,62 +475,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                 </div>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Library No</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Gender</th>
-                                            <th>Department</th>
-                                          
-                                        </tr>
-                                    </thead>
-                        <?php
-
-                        //$libraryno = $_POST ["library_number"];
-                        //$name = $_POST["name"];
-                        //$email = $_POST["email"];
-                        //$gender = $_POST["gender"];
-                        //$department = $_POST["department"];
-                        
-
-                        $sql = "SELECT library_no,m_name,m_email,gender,m_dept,m_status  from member_registration where user_type = 'Faculty' ";
-                        $result =mysqli_query($con,$sql);
-                        $num=mysqli_num_rows($result);
-                        if ($num > 0) 
-                            {
-                                while($row = mysqli_fetch_array($result)) 
-                                {
-                            ?>
-
-                        
-                                   
-                                    <tbody>
-                                        <tr>
-                                        <?php
-                                            echo "<td>" .$row['library_no'] ."</td>" ;
-                                           echo "<td>" .$row['m_name'] ."</td>";
-                                           echo "<td>" .$row['m_email']  ."</td>";
-                                           echo  "<td>" .$row ['gender'] ."</td>";
-                                            echo "<td>" .$row['m_dept'] ."</td>";
-                                            //echo "<td>" .$row ["$status"] ."</td>";
-                                            ?>
-                                            
-                                        </tr>
-                                    </tbody>
-                                    <?php
-                                }
-                            }
-                            ?>
-                                </table>
-                            </div>
+                            <div class="table-responsive" id ="tableresponsive"></div>
                         </div>
                     </div>
-                    <div id = "content"></div>
-
+                   
 
                 </div>
                 <!-- /.container-fluid -->
@@ -554,6 +498,21 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <script>
+            function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("tableresponsive").innerHTML =
+                this.responseText;
+                }
+            };
+            xhttp.open("GET", "./php/load_faculty.php", true);
+            xhttp.send();
+            }
+</script>
+
 
     <!-- Logout Modal-->
    
