@@ -211,10 +211,24 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
 
                                         
-                                        <input type = "Submit" class="btn btn-outline-primary btn-lg" name = "create" value = "Create">
+                                        <input type = "Submit" class="btn btn-outline-primary btn-sm" name = "create" value = "Create">
                                     
                                 </table>
                             </div>
+                            <hr class="sidebar-divider">
+
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <form name = "signup" method = "POST" action="#">
+                                        <div class ="form-group">
+                                            <label>Sub Category</label>
+                                            <input type ="text" class = "form-control" name="firs_category" autocomplete="off" placeholder = "First Sub Category">
+                                        </div> 
+                                        <div class="form-group">
+                                            <input type ="text" class = "form-control" name="sec_category" autocomplete="off" placeholder = "Second Sub Category">
+                                            
+                                        </div>
+                                        <input type = "Submit" class="btn btn-outline-primary btn-sm" name = "create" value = "Create">
+                                </table>
                         </div>
                     
                     </div>
@@ -282,6 +296,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
 
                    </div>
+                    
                        
                 </div>
                

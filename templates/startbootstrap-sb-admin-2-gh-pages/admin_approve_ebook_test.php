@@ -226,6 +226,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                             <div class="table-responsive">
                             <form method = "POST" action = "php/approve.php">
                                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <div id= "out"></div>
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -297,6 +298,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     </div>
 
                 </div>
+                
                 <!-- /.container-fluid -->
 
             </div>

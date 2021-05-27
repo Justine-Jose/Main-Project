@@ -4,7 +4,7 @@
     $name =$_POST["name"];
     $email=$_POST["email"];
     $department=$_POST["department"];
-    $libraryno=$_POST["library_number"];
+   // $libraryno=$_POST["library_number"];
     $phoneno=$_POST["phoneno"];
     $dateofbirth=$_POST["dob"];
     $gender=$_POST["gender"];
@@ -21,10 +21,10 @@
             {
                 ?>
                 <script>alert("Username already exists");
-                /*location.href="custreg.php";
-                exit;*/
                 </script>
                 <?php
+                header("location:../add_user.php");
+                die();
             }
 
         else
@@ -36,8 +36,8 @@
                 /*die ($result);*/
 
                 $n=mysqli_insert_id($con);
-                $sq = "INSERT INTO member_registration (l_id,library_no, m_name, m_email,m_phno,gender,m_dateofbirth, m_dept,user_type,m_status)
-                values($n,$libraryno,'$name','$email', '$phoneno','$gender', '$dateofbirth', '$department','User','Active')";
+                $sq = "INSERT INTO member_registration (l_id, m_name, m_email,m_phno,gender,m_dateofbirth, m_dept,user_type,m_status)
+                values($n,'$name','$email', '$phoneno','$gender', '$dateofbirth', '$department','User','Active')";
     
                 
                

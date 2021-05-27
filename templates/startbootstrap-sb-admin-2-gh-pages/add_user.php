@@ -459,10 +459,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                             </div>
             
                                             <div class="form-group row">
-                                                <!---<div class ="col-sm-6 mb-3 mb-sm-0">
+                                                <div class ="col-sm-6 mb-3 mb-sm-0">
                                                 <label>Library Number</label>
                                                     <div class="col"><input type="text" class="form-control form-control-user"
-                                                        name="library_number" pattern="[0-9]{2,6}" required="required"></div>--->
+                                                        name="library_number" pattern="[0-9]{2,6}" required="required"></div>
                                                     
                                                 </div>
                                                 <div class="col-sm-6">
@@ -507,25 +507,16 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                         
                                       </div>
                                       
-                                      <div class="col-md-6 col-sm-6 col-xs-6">
-                        
-                                            <div class="card shadow mb-4">
-                                                <div class="card-header py-3">
-                                                    <h6 class="m-0 font-weight-bold text-primary">Category</h6>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class = "table-responsive">
-                                                        <div class= "form-group">
-                                                            <label>Category Name</label>
-                                                            <input type ="text" class = "form-control" name="category" autocomplete="off" required> 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                            
+
                                 </div>
                 </div> 
 
+
+                
+
                     </div>
+                    
                             
 
                 </div>
