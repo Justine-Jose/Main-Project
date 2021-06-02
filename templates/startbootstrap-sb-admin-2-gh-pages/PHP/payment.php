@@ -10,6 +10,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     $month = $_POST["expmonth"];
     $cvno = $_POST["cvv"];
     $expyear = $_POST["year"];
+    $pay = $_POST["amount"];
 
     $sql = "SELECT * FROM tble_payment where status = 'Active'";
     $res = mysqli_query($con, $sql);
@@ -24,11 +25,23 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
             else*/
 
            // {
-                $querry = "UPDATE tble_payment set Amount = Amount-50 ";
-                $result = mysqli_query($con,$querry);
 
-                header('locatio: ../user_payment.php');
+            while($row = mysqli_fetch_assoc($res))
+            {
+                if($row['Amount'] != 0)
+                {
+                    $querry = "UPDATE tble_payment set Amount = Amount-$pay ";
+                    $result = mysqli_query($con,$querry);
+
+                    header('location: ../user_payment.php');
                     echo '<script>("Success!!!")</script>';
+                }
+                else{
+                    echo '<script>alert("Insufficient Balance")</script>';
+                    header('location: ../user_payment.php');
+                }
+            }
+                
             //}
           
         }

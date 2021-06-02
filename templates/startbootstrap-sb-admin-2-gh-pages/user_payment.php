@@ -182,6 +182,7 @@ if(!empty($_SESSION['username']))
                 </nav>
                 <!-- End of Topbar -->
 
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <div class="row g-0">
@@ -199,30 +200,49 @@ if(!empty($_SESSION['username']))
                                  </div>
                             <div class="card-body">
                             
-                            <form name = "signup" method = "POST" action="php/payment.php">
+                            <?php
+                                    $sql = "SELECT * FROM tble_payment";
+                                    $res = mysqli_query($con, $sql);
+
+                                    while ($row = mysqli_fetch_array($res))
+                                    {
+                                    ?>
+                                        <form name = "signup" method = "POST" action="php/payment.php">
                                         <div class ="form-group">
                                             <label>Name On Card</label>
-                                            <input type ="text" class = "form-control" name="cardname" autocomplete="off" placeholder = "John Dom" required>
+                                            <input type ="text" class = "form-control" name="cardname" autocomplete="off" required value = <?php echo " ".$row['name']; ?>>
                                         </div> 
                                         <div class ="form-group">
                                             <label>Card Number</label>
-                                            <input type ="text" class = "form-control" name="cardno" autocomplete="off" placeholder = "John Dom" required>
+                                            <input type ="text" class = "form-control" name="cardno" autocomplete="off" value = <?php echo " ".$row['card_number']; ?> required>
                                         </div> 
                                         <div class ="form-group">
                                             <label>Exp Month</label>
-                                            <input type ="text" class = "form-control" name="expmonth" autocomplete="off" placeholder = "January" required>
-                                        </div> 
-                                        <div class ="form-group">
-                                            <label>CVV</label>
-                                            <input type ="text" class = "form-control" name="cvv" autocomplete="off" placeholder = "888" required>
+                                            <input type ="text" class = "form-control" name="expmonth" autocomplete="off" value = <?php echo " ".$row['exp_month']; ?> required>
                                         </div> 
                                         <div class ="form-group">
                                             <label>EXP Year</label>
-                                            <input type ="text" class = "form-control" name="year" autocomplete="off" placeholder = "2022" required>
+                                            <input type ="text" class = "form-control" name="year" autocomplete="off" value = <?php echo " ".$row['exp_year']; ?> required>
                                         </div> 
+                                        <div class ="form-group">
+                                            <label>CVV</label>
+                                            <input type ="text" class = "form-control" name="cvv" autocomplete="off" placeholder = "Enter CVV" required>
+                                        </div> 
+                                        <div class ="form-group">
+                                            <label>Amount</label>
+                                            <input type = "text" class ="form-control" name = "amount" autocomplete = "off" placeholder = "Enter amount">
+                                        </div>
                                     <input type = "Submit" class="btn btn-primary btn-sm" name = "create" value = "Pay">
                                     
                                 </form>
+                               
+                               
+                                <?php
+                                    }
+                            ?>
+
+
+                            
                             </div>
                             </div>
                         </div>

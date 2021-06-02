@@ -14,7 +14,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Add User</title>
+    <title>User Registration</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -24,6 +24,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
 
 </head>
 
@@ -36,10 +37,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Dashbord.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-15">
                    <!--- <i class="fas fa-laugh-wink"></i>--->
-                </div>
+                </div></a>
                  <!--<div class="sidebar-brand-text mx-3">library Management</div>
             </a>--->
 
@@ -143,150 +144,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     </form>--->
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                           <!--- <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>--->
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <!---<li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>--->
-                                <!-- Counter - Alerts -->
-                               <!--- <span class="badge badge-danger badge-counter">3+</span>
-                            </a>--->
-                            <!-- Dropdown - Alerts -->
-                          <!---  <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
-                        </li>--->
-
-                        <!-- Nav Item - Messages -->
-                        <!---<li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>--->
-                                <!-- Counter - Messages -->
-                                <!---<span class="badge badge-danger badge-counter">7</span>--->
-                            </a>
-                            <!-- Dropdown - Messages -->
-                           <!--- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>--->
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                   
 
                         <!-- Nav Item - User Information -->
                         <!---<li class="nav-item dropdown no-arrow">
@@ -331,7 +189,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
                     <div class="row">
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-6" >
+                            <p style = "color: red">Students are requested to Register Only if they have the ID </p>
 
                             <!-- Circle Buttons -->
                             <div class="card shadow mb-4">
@@ -375,23 +234,39 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                                 <div class="col-sm-6">
                                                     <label>Date of Birth</label>
                                                     <input type="date" class="form-control" name="dob" 
-                                                        id ="date" min="1900-01-01" max="2014-12-31" required="required">
+                                                        id ="date" min="1900-01-01" max="2014-12-31" required="required">   </br>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <label>Year of Join</label>
+                                                    <input type="text" class="form-control form-control-user"    name ="year_of_join" required="required" autocomplete="off">
+                                                </div>
+                                                <div class="col-sm-6"><label>Library Number</label>
+                                                    <input type="text" class="form-control form-control-user" id="exampleemail" name="library_number" required="required" autocomplete="off">
                                                 </div>
                                             </div>
             
                                             <div class="form-group row">
-                                                <!---<div class ="col-sm-6 mb-3 mb-sm-0">
-                                                <label>Library Number</label>
-                                                    <div class="col"><input type="text" class="form-control form-control-user"
-                                                        name="library_number" pattern="[0-9]{2,6}" required="required"></div>--->
-                                                    
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label>Username</label>
-                                                        <input type="text" class="form-control form-control-user"
+                                                <div class ="col-sm-6 mb-3 mb-sm-0">
+                                                <label>Username</label>
+                                                <input type="text" class="form-control form-control-user"
                                                             name="username"  pattern="[A-Za-z]{1,100}" required="required" autocomplete="off">
                                                         </div>
-                                            </div>
+
+                                                     
+                                                        <div class="col-sm-6">
+                                                        <label>Your Position</label>
+                                                    <select name="usertype">
+                                                                <option value="">Select...</option>
+                                                                <option value="S">Student</option>
+                                                                <option value="F">Faculty</option>
+                                                                </select>
+                                                        </div>
+                                                    
+                                                </div>
+                                                
+                                            
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0"><label>Password</label>
                                                     <div class="col">
