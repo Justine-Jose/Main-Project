@@ -212,22 +212,41 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
                                         
                                         <input type = "Submit" class="btn btn-outline-primary btn-sm" name = "create" value = "Create">
-                                    
+                                    </form>
                                 </table>
                             </div>
                             <hr class="sidebar-divider">
 
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <form name = "signup" method = "POST" action="#">
+                                    <form name = "signup" method = "POST" action="php/sub_category.php">
                                         <div class ="form-group">
+                                        <select class = "form-control" id = "categ" name = "category">
+                                            <option value = "">Select Category</option>
+                                                <?php
+                                                    $sql = "SELECT * FROM book_category";
+                                                    $res = $con ->query($sql);
+                                                    if($res->num_rows > 0)
+                                                        {
+                                                            while($row = $res->fetch_assoc())
+                                                            {
+                                                                echo "<option value = '{$row["category_id"]}'>{$row['category_name']}</option>";
+                                                            }
+                                                            
+                                                        }
+                                                        else
+                                                            {
+                                                                echo "<option value = ''>Category Not Available</option>";
+                                                            }
+                                                    
+                                                ?>
+                                        </select>
+                                         </div>
+                                         <div class="form-group">
                                             <label>Sub Category</label>
                                             <input type ="text" class = "form-control" name="firs_category" autocomplete="off" placeholder = "First Sub Category">
-                                        </div> 
-                                        <div class="form-group">
-                                            <input type ="text" class = "form-control" name="sec_category" autocomplete="off" placeholder = "Second Sub Category">
-                                            
-                                        </div>
+                                          </div>                  
                                         <input type = "Submit" class="btn btn-outline-primary btn-sm" name = "create" value = "Create">
+                                        </form>
                                 </table>
                         </div>
                     
