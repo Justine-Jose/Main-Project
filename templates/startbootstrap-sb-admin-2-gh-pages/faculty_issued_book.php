@@ -2,7 +2,11 @@
 session_start();
 
 $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
-$name = $_SESSION['username'];
+if(!empty($_SESSION['username']))
+    {
+
+
+    $name = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -214,13 +218,13 @@ $name = $_SESSION['username'];
                         $querry = "SELECT * FROM tbl_penality";
                         $res = mysqli_query($con,$querry);
 
-                        $sql = "SELECT a.book_title, a.book_id, b.book_id, b.l_id, b.issue_date, b.return_date, l.l_id, l.username 
+                        $sql = "SELECT a.book_title, a.book_id, b.book_id, b.l_id, b.issue_date, b.return_date, b.status, l.l_id, l.username 
                         from book_table a, book_issue b, login l where b.l_id = l.l_id 
-                        and b.book_id = a.book_id and l.username = '$name'";
+                        and b.book_id = a.book_id and l.username = '$name' and b.status = '0'";
                         $result = mysqli_query($con,$sql);
                         $num = mysqli_num_rows($result);
                         $count = 1;
-
+                        $date = date('Y-m-d');
                         while($row = mysqli_fetch_array($result))
 
                         
@@ -242,7 +246,23 @@ $name = $_SESSION['username'];
                                         </td>
                                         <?php //echo  "<td class = 'Text-center'>".$row["year_of_publish"] ."</td>"; ?>
                                         <?php //echo  "<td class = 'Text-center'>".$row["edition"] ."</td>"; ?>
-                                       
+                                        <?php 
+                                            if($row['return_date'] < $date)
+                                                {
+                                                    //$fin = 0;
+                                           // if($row['return_date'] > $date)
+                                                    $returndate = new DateTime($row['return_date']);
+                                                    $date1 = new DateTime();
+                                                    $diff = $returndate->diff($date1)->format("%d");
+                                                    echo  $diff;
+                                                    $fin = $diff * 2;
+
+                                                    echo "<td class = 'Text-center'>" .$fin ."</td>";
+                                                }
+                                            else{
+                                                echo "<td class = 'Text-center'>" . 0 ."</td>";
+                                            }
+                                        ?>
                                             
                                         </tr>
                         <?php
@@ -316,3 +336,8 @@ $name = $_SESSION['username'];
 </body>
 
 </html>
+                        <?php
+    }
+    else{
+        header("location: login.php");
+    }

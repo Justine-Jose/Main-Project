@@ -15,8 +15,8 @@ if(!isset($_GET["sid"])) {
 
     if(! $result)
     {
-      die('querry failed ' .$sql);
-
+      //die('querry failed ' .$sql);
+      die('Enter a Valid ID');
 
     }
 

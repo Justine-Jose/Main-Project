@@ -12,11 +12,22 @@ if(!isset($_GET["sid"])) {
     $sql ="SELECT *  FROM  book_table WHERE book_id = $isbno";
 
     $result = mysqli_query($con,$sql);
-
-    if($row=mysqli_fetch_array($result))
+  if(! $result)
+  {
+    die('Enter a Valid ISBN');
+  }
+  elseif(mysqli_num_rows($result) == 0)
+  {
+    die('Invalid ISBN');
+  }
+    else{
+      $row = mysqli_fetch_array($result);
+      die($row['book_title']);
+    }
+   /* ($row=mysqli_fetch_array($result))
     echo $row['book_title'];
     else
-    echo "Book not Found!!";
+    echo "Book not Found!!";*/
 
 
 

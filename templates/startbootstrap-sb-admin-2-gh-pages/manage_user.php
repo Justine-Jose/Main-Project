@@ -469,7 +469,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">STUDENTS</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">STUDENTS</h6></br>
+                                 <input class="form-control form-control-sm" type="text" placeholder="Search Users" name = "search_text" id = "search_text" oninput = "searchDoc(this)">
                                 <div class = "text-right" style = "padding-top: 15px;">
                                     <a href = "PHP/userdata_excel.php" class = "btn btn-primary btn-sm"  style = "cursor:default" >Report</a>
                                 </div>
@@ -477,10 +478,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <div class="card-body">
                             <div class="table-responsive" id ="tableresponsive">
                     
-                                
                             </div>
                         </div>
                     </div>
+                        
 
 
                 </div>
@@ -514,6 +515,36 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
             xhttp.open("GET", "./php/load_student.php", true);
             xhttp.send();
             }
+
+
+
+            /*function searchDoc(searchbar){
+                console.log(searchbar.value)
+            var xhttp = new XMLHttpRrquest();
+            xhttp.onreadystatechange = function(){
+                console.log("Response Received");
+                console.log (this.responseText)
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("tableresponsive").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET","./php/admin_search_user.php?query="+searchbar.value,true);
+            xhttp.send();
+            }*/
+
+            function searchDoc(searchbar) {
+                console.log(searchbar.value)
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                //console.log ("Response received")
+                console.log (this.responseText)
+                if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("tableresponsive").innerHTML = this.responseText;
+                }
+            };
+        xhttp.open("GET", "./php/admin_search_user.php?query="+searchbar.value,true);
+        xhttp.send();       
+        }
 </script>
             
 

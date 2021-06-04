@@ -10,7 +10,7 @@ $role= " ";
 	$pass = MD5($pwrd);
 
 	$_SESSION["username"]=$uname;
-	$sql="select username, password,l_id from login where username='$uname' and password ='$pass'";
+	$sql="select username, password, l_id, status from login where username='$uname' and password ='$pass' and status = 1";
 	// die($sql);	
 	$result =mysqli_query($con,$sql);
 	/*die ("Helll");*/
