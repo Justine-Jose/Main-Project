@@ -326,7 +326,7 @@ function getbook(belement) {
        // while($row = mysqli_fetch_array($result))
        while($row = mysqli_fetch_array($result))*/
 $sql = "SELECT a.book_id, a.book_title, b.issue_id, b.book_id, b.issue_date, b.return_date, b.l_id, b.status, 
-            l.l_id, l.username from book_table a, book_issue b, login l
+        l.l_id, l.username from book_table a, book_issue b, login l
         WHERE a.book_id = b.book_id and b.l_id = l.l_id and b.status = '0'";
 
         $result = mysqli_query($con, $sql);
