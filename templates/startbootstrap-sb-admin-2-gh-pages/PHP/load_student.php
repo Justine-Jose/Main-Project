@@ -37,7 +37,9 @@ $output .= "<tbody>
                    <td> {$row['m_email']}  </td>
                    <td> {$row ['gender']} </td>
                    <td> {$row['m_dept'] } </td>
-                    <td><a href = 'admin_edit_user.php?id =".$row['l_id']." 'class = 'btn btn-danger btn-sm' '>Edit</a></td>";
+                  
+                  <td class = 'Text-center'> <a href='admin_edit_user.php?x=" .$row['l_id']. " ' class = 'btn btn-danger btn-sm'> EDIT</a></td>";
+                   
                 
                     
                "</tr>

@@ -1,5 +1,9 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+session_start();
+
+$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+//$t = $_GET['x'];
+//die($t);
 ?>
 
 <!DOCTYPE html>
@@ -374,10 +378,101 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                     
 
                     <div class="row">
-                
+
+                        <!-- Earnings (Monthly) Card Example -->
+                       <!--  <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Earnings (Monthly)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+
+                        <!-- Earnings (Annual) Card Example -->
+                      <!---  <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Earnings (Annual)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>--->
+
+                        <!-- Tasks Card Example -->
+                       <!--- <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>--->
+
+                        <!-- Pending Requests Card Example -->
+                       <!--- <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Pending Requests</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>--->
+                    </div>
+<script>
+//function update(id){
+//	var frm = document.getElementById("frmm")
+//	frm.setAttribute("action","../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php?id="+id);
+//	frm.submit();
+//}
+</script>
+
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Edit User</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">EDIT</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -386,54 +481,56 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
                                     
                     
-                                                                    <?php
-                                                    if(isset($_REQUEST['id']))
-                                                    {
-                                                    $a=intval($_GET['id']);
-                                                    
+                    <?php
+                                            //$a =intval($_POST['id']);
+                                            //die($a);
+                                            //  if(isset($_POST['x']))
+                                            //  {
+                                                //die('hii');
+                                            $a=intval($_GET['x']);
 
-                                                                        $sql = "SELECT * FROM member_registration where l_id = $a";
-                                                                        
+                                                                $sql = "SELECT * FROM member_registration where l_id = $a";
+                                                                                                                
                                                                         $result = mysqli_query($con,$sql);
 
                                                                         while ($row = mysqli_fetch_assoc($result))
 
-                                                                        {
+                        {
 
 
-                                                                    ?>
+                    ?>
                                     
-                                        <div class ="form-group">
+                                    <div class ="form-group">
                                             <label>Name</label>
-                                            <input type ="hidden" class = "form-control" name="bid" autocomplete="off" required value="<?php echo " ".$row['l_id']; ?>">
+                                            <input type ="hidden" class = "form-control" name="bid" autocomplete="off" required value="<?php echo $row['l_id']; ?>">
                                             <!---<input type="text"  name="amountt"  id="amount" >--->
-                                            <input type ="text" class = "form-control" name="title" autocomplete="off" required value = "<?php echo " ".$row["m_name"];?>">
+                                            <input type ="text" class = "form-control" name="title" autocomplete="off" required value = "<?php echo $row["m_name"];?>">
                                         </div> 
 
                                         <div class ="form-group">
                                             <label>Email</label>
-                                            <input type ="text" class = "form-control" name="author" autocomplete="off" required value = "<?php echo " ".$row["m_email"];?> ">
+                                            <input type ="text" class = "form-control" name="author" autocomplete="off" required value = "<?php echo $row["m_email"];?> ">
                                         </div> 
 
                                         <div class = "form-group">
                                             <label>Library No</label>
-                                            <input type = "text" class = "form-control" name = "sauthor" required value = "<?php echo "" . $row["library_no"];?>">
+                                            <input type = "text" class = "form-control" name = "sauthor" required value = "<?php echo $row["library_no"];?>">
                                         </div>
 
                                         <div class = "form-group">
                                             <label>Date Of Birth</label>
-                                            <input type = "text" class = "form-control" name = "tauthor" required value = "<?php echo "" .$row["m_dateofbirth"] ;?>">
+                                            <input type = "text" class = "form-control" name = "tauthor" required value = "<?php echo $row["m_dateofbirth"] ;?>">
                                         </div>
 
 
                                         <div class ="form-group">
                                             <label>Department</label>
-                                            <input type ="text" class = "form-control" name="publish" autocomplete="off" required value = "<?php echo " ".$row["m_dept"];?>">
+                                            <input type ="text" class = "form-control" name="publish" autocomplete="off" required value = "<?php echo $row["m_dept"];?>">
                                         </div> 
 
                                         <div class ="form-group">
                                             <label>Year of Join</label>
-                                            <input type ="text" class = "form-control" name="edition" autocomplete="off" required value = "<?php echo " ".$row["year_of_join"];?>">
+                                            <input type ="text" class = "form-control" name="edition" autocomplete="off" required value = "<?php echo $row["year_of_join"];?>">
                                         </div> 
 
                                         
@@ -446,22 +543,20 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                         <?php
                         }
 
-                    }
+                    //}
                         ?>
 
                                         
                                         <!---<input type = "Submit" class="btn btn-danger btn-lg" name = "create" value =  "<?php // id= '.$a.'; ?>" onclick="update(this.id)" >--->
                                         <input type = "Submit" class="btn btn-danger btn-lg" name = "create" value =   "Update" >
                                         
-                                        <!---<input type="submit" value="Edit"  >--->
                                     
                                 </table>
-                        </form>
+                </form>
                             </div>
                         </div>
                     
                     </div>
-                
 
 
                 </div>
