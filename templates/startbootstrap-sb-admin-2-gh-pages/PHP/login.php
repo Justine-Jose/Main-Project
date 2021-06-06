@@ -25,6 +25,7 @@ $role= " ";
 				$r=mysqli_fetch_array($result1);	
 				
 				$rl=$r['role'];
+				//die($rl);
 				//$_SESSION['username'] = $row["username"];
 				//$_SESSION["role"] = $row["role"];
 				/*die($rl);*/

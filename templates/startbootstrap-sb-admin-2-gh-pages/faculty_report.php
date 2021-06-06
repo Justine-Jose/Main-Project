@@ -1,8 +1,9 @@
 <?php
-session_start();
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+if(!empty($_SESSION['username']))
 
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
-//$name = $_SESSION['username'];
+{
+    $temp = $_SESSION['username'];
 
 ?>
 
@@ -39,11 +40,11 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="user.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="faculty_dashbord.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                   
+                    
                 </div>
-                <div class="sidebar-brand-text mx-3">Library Management </div>
+                <div class="sidebar-brand-text mx-3">Library Management</div>
             </a>
 
 
@@ -51,10 +52,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item active">
+                <a class="nav-link" href="faculty_dashbord.php">
                     
-                    <span>Dashboard</span></a>
+                    <span>FACULTY DASHBORD</span></a>
             </li>
 
             <!-- Divider -->
@@ -75,16 +76,50 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
-                        <a class="collapse-item" href="#">Issued Books</a>
-                        <a class="collapse-item" href="#">Reservation Details</a>
+                        <a class="collapse-item" href="faculty_issued_book.php">Issued Books</a>
+                        <a class="collapse-item" href="faculty_reservation_details.php">Reservation Details</a>
+                        <a class="collapse-item" href="faculty_searchbook.php">Search Books</a>
                         <a class="collapse-item" href="#">Dues Archives</a>
-                        <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
-                        <a class="collapse-item" href="user_ebook_download.php">Download E-Book</a>
+                        
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>DIGITAL LIBRARY</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">E-BOOK</h6>
+                        <a class="collapse-item" href="faculty_ebook_add.php">Contribute Your E-Book</a>
+                        <a class="collapse-item" href="#">Download E-Book</a>
+                    </div>
+                </div>
+
+
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefour"
+                    aria-expanded="true" aria-controls="collapsefour">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>RECOMMEND</span>
+                </a>
+                <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Recomend Books</h6>
+                        <a class="collapse-item" href="faculty_recommend.php">Recommend For Reference</a>
+                    </div>
+                </div>
+
+
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -95,52 +130,13 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
-                        <a class="collapse-item" href="user_profile.php">My Profile</a>
-                        <a class="collapse-item" href="#">Borders</a>
-                        <a class="collapse-item" href="#">Animations</a>
+                        <a class="collapse-item" href="faculty_profile.php">My Profile</a>
+                        <a class="collapse-item" href="faculty_report.php">Activities</a>
+                        
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>
                 </div>
             </li>
-
-            <!---<li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#One"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>--->
-                    <!---<span>E-BOOKS</span>
-                </a>
-                <div id="One" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Manage Book:</h6>
-                        <a class="collapse-item" href="ebook_add.php">UPLOAD NEW </a>
-                        <a class="collapse-item" href="#">USER UPLOADS</a>
-                        <a class="collapse-item" href="#">DETAILS</a>--->
-                       <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>--->
-                    <!---</div>
-                </div>
-            </li>--->
-
-            <!---<li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <!---<i class="fas fa-fw fa-wrench"></i>--->
-                    <!---span>ISSUE</span>
-                </a>
-                <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header" href = "#">Issue Books</h6>
-                        <a class="collapse-item" href="admin_issue book.php">Issue New Book</a>
-                        <a class="collapse-item" href="admin_return book.php">Return</a>
-                        <a class="collapse-item" href="#">Manage Issue</a>
-                        
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>--->
-                     <!---</div>
-                </div>
-            </li>--->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -503,3 +499,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 </body>
 
 </html>
+<?php 
+    }
+    else{
+        header("location: login.php");
+    }
+    ?>

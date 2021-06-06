@@ -1,7 +1,6 @@
 <?php
 
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
-session_start();
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
 if(!empty($_SESSION['username']))
 
@@ -118,7 +117,7 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Recomend Books</h6>
                         <a class="collapse-item" href="faculty_recommend.php">Recommend For Reference</a>
-                        <a class="collapse-item" href="#">Download E-Book</a>
+                        
                     </div>
                 </div>
 

@@ -13,9 +13,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit User </title>
-
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <title>EDIT BOOK</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,9 +23,6 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-     <!-- Custom styles for this page -->
-     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -42,7 +37,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Dashbord.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <!---<i class="fas fa-laugh-wink"></i>--->
+                
                 </div>
                 <div class="sidebar-brand-text mx-3">Library Management </div>
             </a>
@@ -51,8 +46,9 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="Dashbord.php">
+            
                     <span>Dashboard</span></a>
             </li>
 
@@ -76,7 +72,6 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                         <h6 class="collapse-header">User Management:</h6>
                         <a class="collapse-item" href="add_user.php">Add New User</a>
                         <a class="collapse-item" href="manage_user.php">Manage User</a>
-                        <a class="collapse-item" href="manage_faculty.php">ManageF</a>
                         <a class="collapse-item" href="admin_excel_upload.php">Excel Upload</a>
                     </div>
                 </div>
@@ -103,6 +98,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                 </div>
             </li>
 
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#One"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -122,6 +118,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                     </div>
                 </div>
             </li>
+
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
@@ -143,6 +140,8 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                 </div>
             </li>
 
+
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -150,7 +149,6 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
             
             <!-- Divider -->
             
-
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -373,115 +371,97 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <!---<h1 class="h3 mb-0 text-gray-800">Cards</h1>=--->
-                    </div>
+                    
 
                     <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                       <!--  <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-
-                        <!-- Earnings (Annual) Card Example -->
-                      <!---  <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>--->
-
-                        <!-- Tasks Card Example -->
-                       <!--- <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>--->
-
-                        <!-- Pending Requests Card Example -->
-                       <!--- <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>--->
-                    </div>
-                            <button  class = "btn btn-primary btn sm" name = "stu" id ="loadstudent" onclick = "loadSt()"  style = "margin-top: 15px;">Student</button>
-                            <button class = "btn btn-primary btn sm" name = "fac" id ="loadfaculty" onclick="loadDoc()" style = "margin-top: 15px;">Faculty</button>
-                               
+                
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">STUDENTS</h6></br>
-                                 <input class="form-control form-control-sm" type="text" placeholder="Search Users" name = "search_text" id = "search_text" oninput = "searchDoc(this)">
-                                <div class = "text-right" style = "padding-top: 15px;">
-                                    <a href = "PHP/userdata_excel.php" class = "btn btn-primary btn-sm"  style = "cursor:default" >Report</a>
-                                </div>
+                            <h6 class="m-0 font-weight-bold text-primary">Edit User</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive" id ="tableresponsive">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <form name = "frmm" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php" >
+
+                                    
                     
+                                                                    <?php
+                                                    if(isset($_REQUEST['id']))
+                                                    {
+                                                    $a=intval($_GET['id']);
+                                                    
+
+                                                                        $sql = "SELECT * FROM member_registration where l_id = $a";
+                                                                        
+                                                                        $result = mysqli_query($con,$sql);
+
+                                                                        while ($row = mysqli_fetch_assoc($result))
+
+                                                                        {
+
+
+                                                                    ?>
+                                    
+                                        <div class ="form-group">
+                                            <label>Name</label>
+                                            <input type ="hidden" class = "form-control" name="bid" autocomplete="off" required value="<?php echo " ".$row['l_id']; ?>">
+                                            <!---<input type="text"  name="amountt"  id="amount" >--->
+                                            <input type ="text" class = "form-control" name="title" autocomplete="off" required value = "<?php echo " ".$row["m_name"];?>">
+                                        </div> 
+
+                                        <div class ="form-group">
+                                            <label>Email</label>
+                                            <input type ="text" class = "form-control" name="author" autocomplete="off" required value = "<?php echo " ".$row["m_email"];?> ">
+                                        </div> 
+
+                                        <div class = "form-group">
+                                            <label>Library No</label>
+                                            <input type = "text" class = "form-control" name = "sauthor" required value = "<?php echo "" . $row["library_no"];?>">
+                                        </div>
+
+                                        <div class = "form-group">
+                                            <label>Date Of Birth</label>
+                                            <input type = "text" class = "form-control" name = "tauthor" required value = "<?php echo "" .$row["m_dateofbirth"] ;?>">
+                                        </div>
+
+
+                                        <div class ="form-group">
+                                            <label>Department</label>
+                                            <input type ="text" class = "form-control" name="publish" autocomplete="off" required value = "<?php echo " ".$row["m_dept"];?>">
+                                        </div> 
+
+                                        <div class ="form-group">
+                                            <label>Year of Join</label>
+                                            <input type ="text" class = "form-control" name="edition" autocomplete="off" required value = "<?php echo " ".$row["year_of_join"];?>">
+                                        </div> 
+
+                                        
+                                        <?php
+                                            //echo "<a href = '../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php?y=" .$row['book_id']. " ' class = 'btn btn-danger brn-sm' name = 'update'>Update</a>";
+
+                                        ?>
+
+                                        
+                        <?php
+                        }
+
+                    }
+                        ?>
+
+                                        
+                                        <!---<input type = "Submit" class="btn btn-danger btn-lg" name = "create" value =  "<?php // id= '.$a.'; ?>" onclick="update(this.id)" >--->
+                                        <input type = "Submit" class="btn btn-danger btn-lg" name = "create" value =   "Update" >
+                                        
+                                        <!---<input type="submit" value="Edit"  >--->
+                                    
+                                </table>
+                        </form>
                             </div>
                         </div>
+                    
                     </div>
-                            
-                            
-                        
+                
 
 
                 </div>
@@ -489,64 +469,10 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
             </div>
             <!-- End of Main Content -->
-<script>
+
+            <!-- Footer -->
             
-            function loadDoc() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("tableresponsive").innerHTML =
-                this.responseText;
-                }
-            };
-            xhttp.open("GET", "./php/load_faculty.php", true);
-            xhttp.send();
-            }
-
-
-            function loadSt() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("tableresponsive").innerHTML =
-                this.responseText;
-                }
-            };
-            xhttp.open("GET", "./php/load_student.php", true);
-            xhttp.send();
-            }
-
-
-
-            /*function searchDoc(searchbar){
-                console.log(searchbar.value)
-            var xhttp = new XMLHttpRrquest();
-            xhttp.onreadystatechange = function(){
-                console.log("Response Received");
-                console.log (this.responseText)
-                if(this.readyState == 4 && this.status == 200){
-                    document.getElementById("tableresponsive").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET","./php/admin_search_user.php?query="+searchbar.value,true);
-            xhttp.send();
-            }*/
-
-            function searchDoc(searchbar) {
-                console.log(searchbar.value)
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                //console.log ("Response received")
-                console.log (this.responseText)
-                if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("tableresponsive").innerHTML = this.responseText;
-                }
-            };
-        xhttp.open("GET", "./php/admin_search_user.php?query="+searchbar.value,true);
-        xhttp.send();       
-        }
-</script>
-            
+            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -560,7 +486,24 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
     </a>
 
     <!-- Logout Modal-->
-   
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -571,15 +514,6 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
-
-    
 
 </body>
 

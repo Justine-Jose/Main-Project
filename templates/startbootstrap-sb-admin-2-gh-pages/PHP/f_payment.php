@@ -46,7 +46,7 @@ include('connection.php');
                         values((SELECT l_id from login where username = '$temp'),$pay, now(),'0')";
 
                         $res = mysqli_query($con, $query);
-                        header('location: ../user_payment.php');
+                        header('location: ../faculty_payment.php');
           
         }
     else{

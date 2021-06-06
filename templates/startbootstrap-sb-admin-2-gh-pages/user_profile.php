@@ -1,7 +1,5 @@
 <?php
-session_start();
-//print_r($_SESSION);
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
 
 
@@ -60,7 +58,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
-                <div class="sidebar-brand-text mx-3">Library  </div>
+                <div class="sidebar-brand-text mx-3">Library Management</div>
             </a>
 
             <!-- Divider -->
@@ -75,7 +73,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
             <!-- Divider -->
             
-
+            <hr class="sidebar-divider">
             <!-- Heading -->
             <!---<div class="sidebar-heading">
                 Interface
@@ -91,11 +89,29 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
-                        <a class="collapse-item" href="#">Issued Books</a>
-                        <a class="collapse-item" href="#">Reservation Details</a>
+                        <a class="collapse-item" href="issued_book.php">Issued Books</a>
+                        <a class="collapse-item" href="issued_book(Test).php">Issued Books(Test)</a>
+                        <a class="collapse-item" href="reservation_details.php">Reservation Details</a>
+                        <a class="collapse-item" href="user_searchbook.php">Search Books</a>
                         <a class="collapse-item" href="#">Dues Archives</a>
+                        
                     </div>
                 </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>DIGITAL LIBRARY</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">E-BOOK</h6>
+                        <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
+                        <a class="collapse-item" href="user_ebook_download.php">Download E-Book</a>
+
+
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -110,9 +126,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
-                        <a class="collapse-item" href="#">Borders</a>
-                        <a class="collapse-item" href="#">Animations</a>
+                        <a class="collapse-item" href="user_report.php">Activities</a>
+                        <a class="collapse-item" href="user_payment.php">Payment</a>
                         
+                      <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>
                 </div>
             </li>

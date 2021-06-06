@@ -1,22 +1,9 @@
 <?php
-session_start();
-//print_r($_SESSION);
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+if(!empty($_SESSION['username']))
 
-
-
-    /*if(isset($_POST['update']))
-    {
-        $username =$_SESSION['username'];
-        $name = $_POST['fullanme'];
-        $mob = $_POST['mob'];
-
-        $sql = "UPDATE member_registration set m_name = '$name', m_phno = '$mob' where username = '$username' ";
-
-        $result =mysqli_query($con,$sql);
-        $num=mysqli_num_rows($result);
-        echo '<script>alert("Your profile has been updated")</script>';
-    }*/
+{
+    $temp = $_SESSION['username'];
 
 ?>
 
@@ -31,7 +18,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>User Profile</title>
+    <title> Profile Update</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -67,13 +54,14 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="faculty_dashbord.php">
                     
                     <span>FACULTY DASHBORD</span></a>
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider">
             
 
             <!-- Heading -->
@@ -92,9 +80,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
                         <a class="collapse-item" href="faculty_issued_book.php">Issued Books</a>
-                        <a class="collapse-item" href="#">Issued Books(Test)</a>
                         <a class="collapse-item" href="faculty_reservation_details.php">Reservation Details</a>
-                        <a class="collapse-item" href="user_searchbook.php">Search Books</a>
+                        <a class="collapse-item" href="faculty_searchbook.php">Search Books</a>
                         <a class="collapse-item" href="#">Dues Archives</a>
                         
                     </div>
@@ -118,6 +105,23 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefour"
+                    aria-expanded="true" aria-controls="collapsefour">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>RECOMMEND</span>
+                </a>
+                <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Recomend Books</h6>
+                        <a class="collapse-item" href="faculty_recommend.php">Recommend For Reference</a>
+                    </div>
+                </div>
+
+
+            </li>
+
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -136,11 +140,10 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     </div>
                 </div>
             </li>
-
             
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            
 
             <!-- Heading -->
              <!--- <div class="sidebar-heading">
@@ -393,3 +396,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 </body>
 
 </html>
+<?php 
+    }
+    else{
+        header("location: login.php");
+    }
+    ?>

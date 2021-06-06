@@ -1,8 +1,5 @@
 <?php
-session_start();
-
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
-
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 if(!empty($_SESSION['username']))
 
 {
@@ -91,7 +88,7 @@ if(!empty($_SESSION['username']))
                         <a class="collapse-item" href="issued_book(Test).php">Issued Books(Test)</a>
                         <a class="collapse-item" href="reservation_details.php">Reservation Details</a>
                         <a class="collapse-item" href="user_searchbook.php">Search Books</a>
-                        <a class="collapse-item" href="#">Dues Archives</a>
+                        <a class="collapse-item" href="user_dues_archive.php">Dues Archives</a>
                         
                     </div>
                 </div>
@@ -270,6 +267,10 @@ if(!empty($_SESSION['username']))
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="change_password.php">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Change Password
+                                </a>
                                 <a class="dropdown-item" href="PHP/logout.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Log Out

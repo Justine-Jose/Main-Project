@@ -1,7 +1,5 @@
 <?php
-session_start();
-
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 if(!empty($_SESSION['username']))
     {
 
@@ -20,7 +18,7 @@ if(!empty($_SESSION['username']))
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard</title>
+    <title>Issued Books</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -59,7 +57,7 @@ if(!empty($_SESSION['username']))
             <li class="nav-item active">
                 <a class="nav-link" href="faculty_dashbord.php">
                     
-                    <span>User Dashboard</span></a>
+                    <span>FACULTY DASHBORD</span></a>
             </li>
 
             <!-- Divider -->
@@ -79,7 +77,6 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
                         <a class="collapse-item" href="faculty_issued_book.php">Issued Books</a>
-                        <a class="collapse-item" href="#">Issued Books(Test)</a>
                         <a class="collapse-item" href="faculty_reservation_details.php">Reservation Details</a>
                         <a class="collapse-item" href="faculty_searchbook.php">Search Books</a>
                         <a class="collapse-item" href="#">Dues Archives</a>
@@ -99,6 +96,25 @@ if(!empty($_SESSION['username']))
                         <h6 class="collapse-header">E-BOOK</h6>
                         <a class="collapse-item" href="faculty_ebook_add.php">Contribute Your E-Book</a>
                         <a class="collapse-item" href="#">Download E-Book</a>
+                    </div>
+                </div>
+
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefour"
+                    aria-expanded="true" aria-controls="collapsefour">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>RECOMMEND</span>
+                </a>
+                <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Recomend Books</h6>
+                        <a class="collapse-item" href="faculty_recommend.php">Recommend For Reference</a>
+                        <a class="collapse-item" href="#">Download E-Book</a>
+                    </div>
+                </div>
 
 
             </li>
@@ -115,14 +131,14 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="faculty_profile.php">My Profile</a>
-                        <a class="collapse-item" href="#">Activities</a>
+                        <a class="collapse-item" href="faculty_report.php">Activities</a>
                         
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>
                 </div>
             </li>
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            
 
             <!-- Heading -->
             

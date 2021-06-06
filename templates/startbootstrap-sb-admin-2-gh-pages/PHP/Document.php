@@ -33,13 +33,13 @@
             {
 
                 
-                $sqli="insert into login(username,password,role,status) values ('$username','$passwrd',' $type',0)";
+                $sqli="insert into login(username,password,role,status) values ('$username','$passwrd', '$type',0)";
                 $result1=mysqli_query($con,$sqli);
                 /*die ($result);*/
 
                 $n=mysqli_insert_id($con);
-                $sq = "INSERT INTO member_registration (l_id, m_name, m_email,m_phno,gender,m_dateofbirth, m_dept,year_of_join, user_type,m_status)
-                values($n,'$name','$email', '$phoneno','$gender', '$dateofbirth', '$department',$yearofjoin,'User','0')";
+                $sq = "INSERT INTO member_registration (l_id,library_no,  m_name, m_email,m_phno,gender,m_dateofbirth, m_dept,year_of_join, user_type,m_status)
+                values($n,$libraryno ,'$name','$email', '$phoneno','$gender', '$dateofbirth', '$department',$yearofjoin, '$type','0')";
     
                 
                
@@ -48,10 +48,10 @@
                 
                     {
                         
-                        ?>
+                        ?>                          
                         <script>alert("successful inserted");
                         location.href="../login.php";
-                        exit;
+                       // exit;
                         </script>
                         <?php
                     }
