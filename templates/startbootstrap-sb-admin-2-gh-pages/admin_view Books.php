@@ -1,7 +1,5 @@
 <?php
-session_start();
-
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -337,6 +335,8 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
+                   
+
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Books</h6>
@@ -423,6 +423,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 
     </div>
     <!-- End of Page Wrapper -->
+    
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">

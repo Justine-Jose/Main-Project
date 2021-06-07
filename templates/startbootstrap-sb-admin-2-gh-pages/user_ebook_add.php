@@ -1,5 +1,9 @@
 <?php
 include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+if(!empty($_SESSION['username']))
+
+{
+    $temp = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -47,11 +51,12 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item active">
+                <a class="nav-link" href="user.php">
                     
-                    <span>Dashboard</span></a>
+                    <span>User Dashboard</span></a>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -71,16 +76,32 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
-                        <a class="collapse-item" href="#">Issued Books</a>
-                        <a class="collapse-item" href="#">Reservation Details</a>
-                        <a class="collapse-item" href="#">Dues Archives</a>
-                        <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
-                        <a class="collapse-item" href="user_ebook_download.php">Download E-Book</a>
+                        <a class="collapse-item" href="issued_book.php">Issued Books</a>
+                        <a class="collapse-item" href="issued_book(Test).php">Issued Books(Test)</a>
+                        <a class="collapse-item" href="reservation_details.php">Reservation Details</a>
+                        <a class="collapse-item" href="user_searchbook.php">Search Books</a>
+                        <a class="collapse-item" href="user_dues_archive.php">Dues Archives</a>
+                        
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>DIGITAL LIBRARY</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">E-BOOK</h6>
+                        <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
+                        <a class="collapse-item" href="user_ebook_download.php">Download E-Book</a>
+
+
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -92,31 +113,13 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
-                        <a class="collapse-item" href="#">Borders</a>
-                        <a class="collapse-item" href="#">Animations</a>
+                        <a class="collapse-item" href="user_report.php">Activities</a>
+                        <a class="collapse-item" href="user_payment.php">Payment</a>
+                        
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>
                 </div>
             </li>
-
-            <!---<li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#One"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>--->
-                    <!---<span>E-BOOKS</span>
-                </a>
-                <div id="One" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Manage Book:</h6>
-                        <a class="collapse-item" href="ebook_add.php">UPLOAD NEW </a>
-                        <a class="collapse-item" href="#">USER UPLOADS</a>
-                        <a class="collapse-item" href="#">DETAILS</a>--->
-                       <!--- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>--->
-                    <!---</div>
-                </div>
-            </li>--->
 
             <!---<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
@@ -429,3 +432,9 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 </body>
 
 </html>
+<?php 
+    }
+    else{
+        header("location: login.php");
+    }
+    ?>
