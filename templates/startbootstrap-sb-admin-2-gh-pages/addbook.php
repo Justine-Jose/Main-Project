@@ -1,7 +1,6 @@
 <?php
-session_start();
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
 if(isset($_POST['add']));
 {
     $bookname =$_POST['bookname'];
@@ -15,11 +14,12 @@ if(isset($_POST['add']));
     $isbn = $_POST['isbnno'];
     $category = $_POST['category'];
     $price = $_POST['price'];
+    $cnt = $_POST['bookcount'];
 
 
     $sq = "INSERT INTO book_table (category_id,book_title,book_author,
-            second_author,third_author,year_of_publish,edition,isbn_no,book_status) VALUES 
-            ((SELECT category_id from book_category WHERE category_name = '$category'),'$bookname',' $author','$second_author','$third_author',$publish,'$edition',$isbn,'Active')";
+            second_author,third_author,book_count,year_of_publish,edition,isbn_no,book_status) VALUES 
+            ((SELECT category_id from book_category WHERE category_name = '$category'),'$bookname',' $author','$second_author','$third_author',$cnt,$publish,'$edition',$isbn,'Active')";
 
          
          $res=mysqli_query($con,$sq);

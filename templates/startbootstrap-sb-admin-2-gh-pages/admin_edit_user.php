@@ -1,7 +1,5 @@
 <?php
-session_start();
-
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 //$t = $_GET['x'];
 //die($t);
 ?>
@@ -477,7 +475,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <form name = "frmm" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php" >
+                                    <form name = "frmm" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/adminedit_user.php" >
 
                                     
                     
@@ -504,33 +502,33 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                             <label>Name</label>
                                             <input type ="hidden" class = "form-control" name="bid" autocomplete="off" required value="<?php echo $row['l_id']; ?>">
                                             <!---<input type="text"  name="amountt"  id="amount" >--->
-                                            <input type ="text" class = "form-control" name="title" autocomplete="off" required value = "<?php echo $row["m_name"];?>">
+                                            <input type ="text" class = "form-control" name="uname" autocomplete="off" required value = "<?php echo $row["m_name"];?>">
                                         </div> 
 
                                         <div class ="form-group">
                                             <label>Email</label>
-                                            <input type ="text" class = "form-control" name="author" autocomplete="off" required value = "<?php echo $row["m_email"];?> ">
+                                            <input type ="text" class = "form-control" name="mail" autocomplete="off" required value = "<?php echo $row["m_email"];?> ">
                                         </div> 
 
                                         <div class = "form-group">
                                             <label>Library No</label>
-                                            <input type = "text" class = "form-control" name = "sauthor" required value = "<?php echo $row["library_no"];?>">
+                                            <input type = "text" class = "form-control" name = "lno" required value = "<?php echo $row["library_no"];?>">
                                         </div>
 
                                         <div class = "form-group">
                                             <label>Date Of Birth</label>
-                                            <input type = "text" class = "form-control" name = "tauthor" required value = "<?php echo $row["m_dateofbirth"] ;?>">
+                                            <input type = "text" class = "form-control" name = "dob" required value = "<?php echo $row["m_dateofbirth"] ;?>">
                                         </div>
 
 
                                         <div class ="form-group">
                                             <label>Department</label>
-                                            <input type ="text" class = "form-control" name="publish" autocomplete="off" required value = "<?php echo $row["m_dept"];?>">
+                                            <input type ="text" class = "form-control" name="dept" autocomplete="off" required value = "<?php echo $row["m_dept"];?>">
                                         </div> 
 
                                         <div class ="form-group">
                                             <label>Year of Join</label>
-                                            <input type ="text" class = "form-control" name="edition" autocomplete="off" required value = "<?php echo $row["year_of_join"];?>">
+                                            <input type ="text" class = "form-control" name="join" autocomplete="off" required value = "<?php echo $row["year_of_join"];?>">
                                         </div> 
 
                                         

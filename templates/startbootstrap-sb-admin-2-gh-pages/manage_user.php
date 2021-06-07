@@ -462,13 +462,15 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                             </div>
                         </div>--->
                     </div>
+                    <input class="form-control " type="text" placeholder="Search Users" name = "search_text" id = "search_text" oninput = "searchDoc(this)"></br>
+                    <div class = "table-responsive" id = "showtable"></div>
                             <button  class = "btn btn-primary btn sm" name = "stu" id ="loadstudent" onclick = "loadSt()"  style = "margin-top: 15px;">Student</button>
                             <button class = "btn btn-primary btn sm" name = "fac" id ="loadfaculty" onclick="loadDoc()" style = "margin-top: 15px;">Faculty</button>
                                
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">STUDENTS</h6></br>
-                                 <input class="form-control form-control-sm" type="text" placeholder="Search Users" name = "search_text" id = "search_text" oninput = "searchDoc(this)">
+                                 <!---<input class="form-control form-control-sm" type="text" placeholder="Search Users" name = "search_text" id = "search_text" oninput = "searchDoc(this)">--->
                                 <div class = "text-right" style = "padding-top: 15px;">
                                     <a href = "PHP/userdata_excel.php" class = "btn btn-primary btn-sm"  style = "cursor:default" >Report</a>
                                 </div>
@@ -533,13 +535,13 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
             }*/
 
             function searchDoc(searchbar) {
-                console.log(searchbar.value)
+                console.log("./php/admin_search_user.php?query="+searchbar.value)
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
-                //console.log ("Response received")
-                console.log (this.responseText)
                 if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("tableresponsive").innerHTML = this.responseText;
+                console.log ("Response received")
+                console.log (this.responseText)
+                        document.getElementById("showtable").innerHTML = this.responseText;
                 }
             };
         xhttp.open("GET", "./php/admin_search_user.php?query="+searchbar.value,true);

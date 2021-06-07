@@ -466,22 +466,24 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                                                     
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <label>Username</label>
+                                                    <label>Year of Join</label>
                                                         <input type="text" class="form-control form-control-user"
-                                                            name="username"  pattern="[A-Za-z]{1,100}" required="required" autocomplete="off">
+                                                            name="year_of_join" required="required" autocomplete="off">
                                                         </div>
                                             </div>
                                             <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0"><label>Password</label>
+                                                <div class="col-sm-6 mb-3 mb-sm-0"><label>Username</label>
                                                     <div class="col">
-                                                        <input type="password" class="form-control form-control-user" name="passwrd"
+                                                    <input type="text" class="form-control form-control-user"
+                                                            name="username"  pattern="[A-Za-z]{1,100}" required="required" autocomplete="off">
+                                                        </div>
+                                                </div>
+                                                <div class="col-sm-6"><label>Password</label>
+                                                <input type="password" class="form-control form-control-user" name="passwrd"
                                                         id="password1" required="required">
                                                 </div>
                                             </div>
-                                                <div class="col-sm-6"><label>Confirm Password</label>
-                                                    <input type="password" class="form-control form-control-user"
-                                                        id="password2"  required="required">
-                                                </div>
+                                                
                                             
                                             </div>
                                             <button  type="submit" class="btn btn-primary btn-user btn-block">
@@ -566,7 +568,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
         </div>
     </div>
     <script type="text/javascript">
-		function checkPassword(form) { 
+		/*function checkPassword(form) { 
                 password1 = form.password1.value; 
                 password2 = form.password2.value; 
   
@@ -589,7 +591,7 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
                     alert("Password Match") 
                     return true; 
                 } 
-            } 
+            } */
     </script>
 
     <!-- Bootstrap core JavaScript-->

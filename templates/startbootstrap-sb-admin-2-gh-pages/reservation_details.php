@@ -1,7 +1,10 @@
 <?php
-session_start();
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+if(!empty($_SESSION['username']))
 
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+{
+    $temp = $_SESSION['username'];
+
 ?>
 
 <!DOCTYPE html>
@@ -270,3 +273,9 @@ $con=mysqli_connect("localhost","root","","library_management")or die("Couldn't 
 </body>
 
 </html>
+<?php 
+    }
+    else{
+        header("location: login.php");
+    }
+    ?>

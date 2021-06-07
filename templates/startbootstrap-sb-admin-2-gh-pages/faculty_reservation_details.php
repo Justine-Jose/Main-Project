@@ -78,7 +78,6 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
                         <a class="collapse-item" href="faculty_issued_book.php">Issued Books</a>
-                        <a class="collapse-item" href="#">Issued Books(Test)</a>
                         <a class="collapse-item" href="faculty_reservation_details.php">Reservation Details</a>
                         <a class="collapse-item" href="faculty_searchbook.php">Search Books</a>
                         <a class="collapse-item" href="#">Dues Archives</a>
@@ -98,12 +97,30 @@ if(!empty($_SESSION['username']))
                         <h6 class="collapse-header">E-BOOK</h6>
                         <a class="collapse-item" href="faculty_ebook_add.php">Contribute Your E-Book</a>
                         <a class="collapse-item" href="#">Download E-Book</a>
+                    </div>
+                </div>
+
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefour"
+                    aria-expanded="true" aria-controls="collapsefour">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>RECOMMEND</span>
+                </a>
+                <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Recomend Books</h6>
+                        <a class="collapse-item" href="faculty_recommend.php">Recommend For Reference</a>
+                    </div>
+                </div>
 
 
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-             <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                    <!--- <i class="fas fa-fw fa-wrench"></i>--->
@@ -114,18 +131,13 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="faculty_profile.php">My Profile</a>
-                        <a class="collapse-item" href="#">Activities</a>
+                        <a class="collapse-item" href="faculty_report.php">Activities</a>
+                        <a class="collapse-item" href="faculty_payment.php">payment</a>
                         
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>
                 </div>
             </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            
-            <!-- Nav Item - Charts -->
             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -203,78 +215,35 @@ if(!empty($_SESSION['username']))
                                 </form>--->
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                             
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                   <form mathod = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php">
-                                
-                                <thead>
-                                        <tr>
-                                            <th>Number</th>
-                                            <th>Book Title</th>
-                                            <th>Published Year</th>
-                                            <th>Edition</th>
-                                            <th>Action</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Number</th>
-                                            <th>Book Title</th>
-                                            <th>Published Year</th>
-                                            <th>Edition</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                        <?php
-
-                        $sql = "SELECT * from book_table";
-                        $result = mysqli_query($con,$sql);
-                        $num = mysqli_num_rows($result);
-                        $count = 1;
-
-                        while($row = mysqli_fetch_array($result))
-
-                        
-                        {
-
-     
-
-
-
-                        ?>
-                                    <tbody>
-                                        <tr>
-                                        
-                                        <?php echo "<td class = 'Text-center'>" .$count++ ."</td>"; ?>
-                                        <!---<td class = "Text-center">--->
-                                            <!---<div class = "form-group">--->
-                                                <!---<input  type ="text" name = "book_title" id = "book_title" readonly="readonly" value = "---><?php 
-                                                 echo " <td class = 'Text-center'>" .$row["book_title"] ."</td>";
-                                                ?>
-                                            <!---</div>
-                                        </td>--->
-                                        <?php echo  "<td class = 'Text-center'>".$row["year_of_publish"] ."</td>"; ?>
-                                        <?php echo  "<td class = 'Text-center'>".$row["edition"] ."</td>"; ?>
-                                        <?php echo "<td class = 'Text-center'> <a href='../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php?x=" .$row['book_id']. " '> Reserve</a>";
-                                        
-                                        //<input type = 'Submit' class = 'btn btn-success btn-sm' name = 'reserve' value = 'Reserve'></td>"; ?>
-                                            
-                                        </tr>
-                        <?php
-                        }
-                        ?>
-                                        
-                                         </tbody>
-                                    <!---</form>--->
-                                </table>
+                        <div class="form-group">
+                                <div class="input-group">
+                                    <!--<span class="input-group-addon">Search</span>-->
+                                    <input type="text" name="search_text" id="search_text" oninput = "loadDoc(this)" placeholder="Search Here By Title, Author..." class="form-control" />
+                                </div>
                             </div>
+                            <br />
+                            <div id="result"></div>
                         </div>
                     </div>
 
                 </div>
                 <!-- /.container-fluid -->
+
+                <script>
+  function loadDoc(searchbar) {
+      console.log(searchbar.value)
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    console.log ("Response received")
+    console.log (this.responseText)
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("result").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "./php/reserve_user.php?query="+searchbar.value, true);
+  xhttp.send();
+}
+</script>
 
             </div>
             <!-- End of Main Content -->
@@ -334,7 +303,6 @@ if(!empty($_SESSION['username']))
 </body>
 
 </html>
-
 <?php 
     }
     else{

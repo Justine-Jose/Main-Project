@@ -16,6 +16,8 @@ if(isset($_POST['add']));
     $isbn = $_POST['isbnno'];
     $category = $_POST['category'];
     $price = $_POST['price'];
+    $cnt = $_POST['bookcount'];
+    
 
 
     /*$sq = "INSERT INTO book_table (category_id,book_title,book_author,
@@ -23,9 +25,9 @@ if(isset($_POST['add']));
             ((SELECT category_id from book_category WHERE category_name = '$category'),'$bookname',' $author','$second_author','$third_author',$publish,'$edition','Active')";
 
     */
-    $s = "INSERT INTO `book_table`( `category_id`, `book_title`, `book_author`, `second_author`, `third_author`, `year_of_publish`, `edition`, `book_status`) 
-        VALUES ((SELECT `category_id` from `book_category` WHERE category_name = ' $category'),'$bookname',' $author','$second_author','$third_author',$publish,'$edition','Active')";
-     
+    $s = "INSERT INTO `book_table`( `category_id`, `book_title`, `book_author`, `second_author`, `third_author`, `book_count`, `year_of_publish`, `edition`, `book_status`) 
+        VALUES ((SELECT `category_id` from `book_category` WHERE category_name = ' $category'),'$bookname',' $author','$second_author','$third_author',$cnt ,$publish,'$edition','Active')";
+        //die($s);
          $res=mysqli_query($con,$s);
          //die ($res);
          
