@@ -1,7 +1,5 @@
 <?php
-session_start();
-//print_r($_SESSION);
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('connection.php');
 
 
 

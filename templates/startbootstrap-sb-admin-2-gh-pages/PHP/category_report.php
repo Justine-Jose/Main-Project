@@ -2,7 +2,7 @@
 session_start();
 require_once '../FPDF/fpdf.php';
 
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('connection.php');
 
 
 //$name = $_SESSION['username'];

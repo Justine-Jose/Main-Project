@@ -1,7 +1,6 @@
 <?php
     
-    $con =mysqli_connect("localhost","root","","library_management") or die("Can't connect");
-    session_start();
+    include('connection.php');
 
     if(isset($_REQUEST['x']))
     {

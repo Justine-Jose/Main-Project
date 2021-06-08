@@ -3,7 +3,7 @@ session_start();
 /*print_r($_POST);
 die();*/
 
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('connection.php');
 $role= " ";
 	$uname = $_POST["username"];
 	$pwrd = $_POST["passwrd"];

@@ -1,6 +1,6 @@
 <?php
     
-    $con =mysqli_connect("localhost","root","","library_management") or die("Can't connect");
+    include('connection.php');
 
     if (isset($_POST['update']))
 

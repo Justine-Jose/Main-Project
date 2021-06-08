@@ -1,4 +1,5 @@
 <?php
+include('connection.php');
 
     // Make sure an ID was passed
     if(isset($_GET['file_id'])) {

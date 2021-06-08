@@ -1,7 +1,5 @@
 <?php
-session_start();
-//error_reporting(0);
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 ?>
 
 <!DOCTYPE html>

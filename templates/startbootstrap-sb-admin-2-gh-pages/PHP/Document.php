@@ -1,6 +1,6 @@
 <?php
     
-    $con =mysqli_connect("localhost","root","","library_management") or die("Can't connect");
+    include('connection.php');
     $name =$_POST["name"];
     $email=$_POST["email"];
     $department=$_POST["department"];

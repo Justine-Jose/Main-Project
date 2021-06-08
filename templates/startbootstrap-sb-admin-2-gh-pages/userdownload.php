@@ -2,7 +2,7 @@
 
 session_start();
 
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
     $sql = "SELECT * FROM ebook_table";
     $result = mysqli_query($con, $sql);

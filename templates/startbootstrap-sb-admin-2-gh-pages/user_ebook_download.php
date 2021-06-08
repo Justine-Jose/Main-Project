@@ -1,7 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
-
-session_start();
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
 if(!empty($_SESSION['username']))
 
