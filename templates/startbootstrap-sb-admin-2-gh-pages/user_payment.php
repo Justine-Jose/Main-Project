@@ -79,7 +79,7 @@ if(!empty($_SESSION['username']))
                         <a class="collapse-item" href="issued_book(Test).php">Issued Books(Test)</a>
                         <a class="collapse-item" href="reservation_details.php">Reservation Details</a>
                         <a class="collapse-item" href="user_searchbook.php">Search Books</a>
-                        <a class="collapse-item" href="#">Dues Archives</a>
+                        <a class="collapse-item" href="user_dues_archive.php">Dues Archives</a>
                         
                     </div>
                 </div>
@@ -100,7 +100,6 @@ if(!empty($_SESSION['username']))
 
 
             </li>
-
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -119,7 +118,6 @@ if(!empty($_SESSION['username']))
                     </div>
                 </div>
             </li>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider">

@@ -76,13 +76,30 @@ if(!empty($_SESSION['username']))
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
-                        <a class="collapse-item" href="#">Issued Books</a>
+                        <a class="collapse-item" href="issued_book.php">Issued Books</a>
+                        <a class="collapse-item" href="issued_book(Test).php">Issued Books(Test)</a>
                         <a class="collapse-item" href="reservation_details.php">Reservation Details</a>
-                        <a class="collapse-item" href="#">Dues Archives</a>
-                        <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
-                        <a class="collapse-item" href="user_ebook_download.php">Download E-Book</a>
+                        <a class="collapse-item" href="user_searchbook.php">Search Books</a>
+                        <a class="collapse-item" href="user_dues_archive.php">Dues Archives</a>
+                        
                     </div>
                 </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>DIGITAL LIBRARY</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">E-BOOK</h6>
+                        <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
+                        <a class="collapse-item" href="user_ebook_download.php">Download E-Book</a>
+
+
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -96,8 +113,9 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
-                        <a class="collapse-item" href="#">Borders</a>
-                        <a class="collapse-item" href="#">Animations</a>
+                        <a class="collapse-item" href="user_report.php">Activities</a>
+                        <a class="collapse-item" href="user_payment.php">Payment</a>
+                        
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>
                 </div>

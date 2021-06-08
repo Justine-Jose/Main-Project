@@ -85,7 +85,7 @@ if(!empty($_SESSION['username']))
                         <a class="collapse-item" href="faculty_issued_book.php">Issued Books</a>
                         <a class="collapse-item" href="faculty_reservation_details.php">Reservation Details</a>
                         <a class="collapse-item" href="faculty_searchbook.php">Search Books</a>
-                        <a class="collapse-item" href="#">Dues Archives</a>
+                        <a class="collapse-item" href="faculty_dues_archive.php">Dues Archives</a>
                         
                     </div>
                 </div>
@@ -119,7 +119,6 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Recomend Books</h6>
                         <a class="collapse-item" href="faculty_recommend.php">Recommend For Reference</a>
-                        <a class="collapse-item" href="#">Download E-Book</a>
                     </div>
                 </div>
 
@@ -139,6 +138,7 @@ if(!empty($_SESSION['username']))
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="faculty_profile.php">My Profile</a>
                         <a class="collapse-item" href="faculty_report.php">Activities</a>
+                        <a class="collapse-item" href="faculty_payment.php">payment</a>
                         
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>

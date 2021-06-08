@@ -83,7 +83,7 @@ if(!empty($_SESSION['username']))
                         <a class="collapse-item" href="issued_book(Test).php">Issued Books(Test)</a>
                         <a class="collapse-item" href="reservation_details.php">Reservation Details</a>
                         <a class="collapse-item" href="user_searchbook.php">Search Books</a>
-                        <a class="collapse-item" href="#">Dues Archives</a>
+                        <a class="collapse-item" href="user_dues_archive.php">Dues Archives</a>
                         
                     </div>
                 </div>
@@ -117,6 +117,7 @@ if(!empty($_SESSION['username']))
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
                         <a class="collapse-item" href="user_report.php">Activities</a>
+                        <a class="collapse-item" href="user_payment.php">Payment</a>
                         
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>

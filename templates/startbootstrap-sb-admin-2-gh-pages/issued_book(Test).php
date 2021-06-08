@@ -1,7 +1,8 @@
 <?php
-session_start();
+include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+if(!empty($_SESSION['username']))
 
-$con=mysqli_connect("localhost","root","","library_management")or die("Couldn't connect to server");
+{
 $name = $_SESSION['username'];
 ?>
 
@@ -74,15 +75,30 @@ $name = $_SESSION['username'];
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">BOOKS</h6>
-                        <a class="collapse-item" href="#">Issued Books</a>
+                        <a class="collapse-item" href="issued_book.php">Issued Books</a>
+                        <a class="collapse-item" href="issued_book(Test).php">Issued Books(Test)</a>
                         <a class="collapse-item" href="reservation_details.php">Reservation Details</a>
-                        <a class="collapse-item" href="#">Dues Archives</a>
-                        <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
-                        <a class="collapse-item" href="user_ebook_download.php">Download E-Book</a>
+                        <a class="collapse-item" href="user_searchbook.php">Search Books</a>
+                        <a class="collapse-item" href="user_dues_archive.php">Dues Archives</a>
+                        
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                   <!--- <i class="fas fa-fw fa-cog"></i> --->
+                    <span>DIGITAL LIBRARY</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">E-BOOK</h6>
+                        <a class="collapse-item" href="user_ebook_add.php">Contribute Your E-Book</a>
+                        <a class="collapse-item" href="user_ebook_download.php">Download E-Book</a>
+
+
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -94,12 +110,14 @@ $name = $_SESSION['username'];
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
-                        <a class="collapse-item" href="#">Borders</a>
-                        <a class="collapse-item" href="#">Animations</a>
+                        <a class="collapse-item" href="user_report.php">Activities</a>
+                        <a class="collapse-item" href="user_payment.php">Payment</a>
+                        
                       <!---<a class="collapse-item" href="#">Other</a>--->
                     </div>
                 </div>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -229,7 +247,7 @@ $name = $_SESSION['username'];
                         $num = mysqli_num_rows($result);
                         $count = 1;
                         $date = date('Y-m-d');
-                        echo $date;
+                        
                         while($row = mysqli_fetch_array($result))
 
                         
@@ -343,3 +361,9 @@ $name = $_SESSION['username'];
 </body>
 
 </html>
+<?php 
+    }
+    else{
+        header("location: login.php");
+    }
+    ?>
