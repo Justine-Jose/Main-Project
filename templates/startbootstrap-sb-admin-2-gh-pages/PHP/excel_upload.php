@@ -28,6 +28,7 @@ foreach($objExcel->getWorksheetIterator() as $worksheet)
 		$password = MD5($password);
 		$role=$worksheet->getCellByColumnAndRow(10,$row)->getValue();
 		
+		
 		if($username!='')
 		{
 			$sqli="INSERT INTO login(username,password,role) VALUES ('$username', '$password','$role')";
@@ -42,6 +43,11 @@ foreach($objExcel->getWorksheetIterator() as $worksheet)
 			//$insertqry="INSERT INTO `user`( `username`, `email`) VALUES ('$name','$email')";
 			$insertres=mysqli_query($con,$sq);
 			echo '<script>alert("Successfully INSERTED")</script>';
+			header("location:../admin_excel_upload.php");
+		}
+		else {
+			echo '<script>alert("Error Occured")</script>';
+			header("location:../admin_excel_upload.php");
 		}
 	}
 }
