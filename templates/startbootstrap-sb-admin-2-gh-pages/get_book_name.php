@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
