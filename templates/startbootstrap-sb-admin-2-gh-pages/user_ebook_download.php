@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 
 if(!empty($_SESSION['username']))
 
@@ -115,6 +115,7 @@ if(!empty($_SESSION['username']))
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
                         <a class="collapse-item" href="user_report.php">Activities</a>
+                        <a class="collapse-item" href="user_recommendations.php">Recommendations</a>
                         <a class="collapse-item" href="user_payment.php">Payment</a>
                         
                       <!---<a class="collapse-item" href="#">Other</a>--->
@@ -307,8 +308,8 @@ if(!empty($_SESSION['username']))
                         <?php //echo floor($file['book_size'] / 1000) . ' KB'; ?>
                         <?php //echo $row['downloads'] ; ?>
                     
-                        <?php //echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/user_download.php?file_id=" .$row['ebook_id'] ." '>Download</a></td>"; ?>
-                        <td><a href='../startbootstrap-sb-admin-2-gh-pages/uploads/<?php echo $row['book_name'];?>' download >Download</a></td>
+                        <?php //echo "<td><a href='/PHP/user_download.php?file_id=" .$row['ebook_id'] ." '>Download</a></td>"; ?>
+                        <td><a href='uploads/<?php echo $row['book_name'];?>' download >Download</a></td>
                 </tr>
                     <?php
                     }

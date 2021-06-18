@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 
 
 
@@ -127,6 +127,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
                         <a class="collapse-item" href="user_report.php">Activities</a>
+                        <a class="collapse-item" href="user_recommendations.php">Recommendations</a>
                         <a class="collapse-item" href="user_payment.php">Payment</a>
                         
                       <!---<a class="collapse-item" href="#">Other</a>--->
@@ -255,7 +256,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 
-                                <form name = "signup" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/user_update profile.php" autocomplete="off"> 
+                                <form name = "signup" method = "POST" action = "PHP/user_update profile.php" autocomplete="off"> 
                                     
                                     
         <?php

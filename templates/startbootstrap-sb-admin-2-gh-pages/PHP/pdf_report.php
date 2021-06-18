@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 require_once '../FPDF/fpdf.php';
 
 include('connection.php');
@@ -30,7 +30,7 @@ $result = mysqli_query($con,$sql);
         $pdf->Cell(40,10,'Status','1','1','c');
         
         $querry = "SELECT e.l_id, e.book_name, e.status, l.l_id, l.username 
-        FROM ebook_table e, login l where username = '$name' and status = 'Approved'";
+        FROM ebook_table e, login l where username = '$name' and e.status = 'Approved'";
         $data = mysqli_query($con,$querry);
         
         $no = 0;

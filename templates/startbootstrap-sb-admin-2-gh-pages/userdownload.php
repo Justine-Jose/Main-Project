@@ -2,7 +2,7 @@
 
 session_start();
 
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('/PHP/connection.php');
 
     $sql = "SELECT * FROM ebook_table";
     $result = mysqli_query($con, $sql);

@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 if(!empty($_SESSION['username']))
 
 {
@@ -114,6 +114,7 @@ if(!empty($_SESSION['username']))
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
                         <a class="collapse-item" href="user_report.php">Activities</a>
+                        <a class="collapse-item" href="user_recommendations.php">Recommendations</a>
                         <a class="collapse-item" href="user_payment.php">Payment</a>
                         
                       <!---<a class="collapse-item" href="#">Other</a>--->
@@ -299,7 +300,7 @@ if(!empty($_SESSION['username']))
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 
-                                            <form name = "signup" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/add_ebook_user.php" autocomplete="off" enctype="multipart/form-data" >
+                                            <form name = "signup" method = "POST" action = "PHP/add_ebook_user.php" autocomplete="off" enctype="multipart/form-data" >
                                                 <div class = "form-group">
                                                     <label>Upload File </label>
                                                         <input type="file" name="myfile" id="fileToUpload">

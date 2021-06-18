@@ -1,5 +1,5 @@
 <?php
-    include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+    include('PHP/connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -243,8 +243,8 @@
                                                                         <?php echo "<td class = 'Text-center'>" .$row['m_dept'] ."</td>";?>
                                                                         <?php echo "<td class = 'Text-center'>" .$row['library_no'] ."</td>";?>
                                                                         <?php echo "<td class = 'Text-center'>" .$row['user_type'] ."</td>";?>
-                                                                        <?php echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/request_approe.php?x=" .$row['l_id']. " ' class = 'btn btn-success btn-sm'>Approve</a>";
-                                                                            echo "<a href='../startbootstrap-sb-admin-2-gh-pages/PHP/request_reject.php?y=" .$row['l_id']. "' class = 'btn btn-danger btn-sm'> Reject</a></td>";?>
+                                                                        <?php echo "<td><a href='PHP/request_approe.php?x=" .$row['l_id']. " ' class = 'btn btn-success btn-sm'>Approve</a>";
+                                                                            echo "<a href='PHP/request_reject.php?y=" .$row['l_id']. "' class = 'btn btn-danger btn-sm'> Reject</a></td>";?>
                                                                         
                                                                     
                                                                             

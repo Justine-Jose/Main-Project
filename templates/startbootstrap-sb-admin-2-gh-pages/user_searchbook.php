@@ -1,5 +1,5 @@
 <?php 
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 if(!empty($_SESSION['username']))
 
     {
@@ -119,6 +119,7 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile</h6>
                         <a class="collapse-item" href="user_profile.php">My Profile</a>
+                        <a class="collapse-item" href="user_recommendations.php">Recommendations</a>
                         <a class="collapse-item" href="user_report.php">Activities</a>
                         
                       <!---<a class="collapse-item" href="#">Other</a>--->

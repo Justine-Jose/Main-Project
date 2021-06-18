@@ -41,7 +41,7 @@ include('connection.php');
                <td> {$row['edition'] } </td>
                <td>{$row['book_count']}</td>
                <td class = 'Text-center'> <a href='admin_edit_book.php?x=" .$row['book_id ']. " ' class = 'btn btn-danger btn-sm'> EDIT</a>
-               <a href = '../startbootstrap-sb-admin-2-gh-pages/PHP/admin_delete_user.php?y=" .$row['book_id']." ' class = 'btn btn-danger btn-sm'>Delete</a></td>";
+               <a href = '/PHP/admin_delete_user.php?y=" .$row['book_id']." ' class = 'btn btn-danger btn-sm'>Delete</a></td>";
             
                 
            

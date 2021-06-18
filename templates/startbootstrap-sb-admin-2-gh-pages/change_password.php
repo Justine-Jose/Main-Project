@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 
 ?>
 
@@ -185,7 +185,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 
-                                    <form name = "changepassword" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/change_password.php" autocomplete="off"> 
+                                    <form name = "changepassword" method = "POST" action = "PHP/change_password.php" autocomplete="off"> 
                                     
                                     
         

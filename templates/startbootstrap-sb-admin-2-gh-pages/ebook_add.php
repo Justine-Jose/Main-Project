@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -297,7 +297,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 
-                                            <form name = "signup" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/add_ebook.php" autocomplete="off" enctype="multipart/form-data" >
+                                            <form name = "signup" method = "POST" action = "PHP/add_ebook.php" autocomplete="off" enctype="multipart/form-data" >
                                                 <div class = "form-group">
                                                     <label>Upload File </label>
                                                         <input type="file" name="myfile" id="fileToUpload">

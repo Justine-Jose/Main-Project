@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 if(!empty($_SESSION['username']))
 
 {
@@ -82,7 +82,7 @@ if(!empty($_SESSION['username']))
                         <a class="collapse-item" href="faculty_issued_book.php">Issued Books</a>
                         <a class="collapse-item" href="faculty_reservation_details.php">Reservation Details</a>
                         <a class="collapse-item" href="faculty_searchbook.php">Search Books</a>
-                        <a class="collapse-item" href="#">Dues Archives</a>
+                        <a class="collapse-item" href="faculty_dues_archive.php">Dues Archives</a>
                         
                     </div>
                 </div>
@@ -98,7 +98,7 @@ if(!empty($_SESSION['username']))
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">E-BOOK</h6>
                         <a class="collapse-item" href="faculty_ebook_add.php">Contribute Your E-Book</a>
-                        <a class="collapse-item" href="#">Download E-Book</a>
+                        <a class="collapse-item" href="faculty_ebook_download.php">Download E-Book</a>
                     </div>
                 </div>
 
@@ -263,7 +263,7 @@ if(!empty($_SESSION['username']))
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 
-                                <form name = "signup" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/user_update profile.php" autocomplete="off"> 
+                                <form name = "signup" method = "POST" action = "PHP/faculty_update profile.php" autocomplete="off"> 
                                     
                                     
         <?php

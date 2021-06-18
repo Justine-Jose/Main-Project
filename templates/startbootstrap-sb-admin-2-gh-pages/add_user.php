@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -420,7 +420,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                                     <!-- Circle Buttons (Default) -->
                                     <div class="container">
                                         <h2>Add User</h2>
-                                        <form class="user" method="POST" action="../startbootstrap-sb-admin-2-gh-pages/PHP/Document2.php"  name ="regform"  onsubmit="return checkPassword(this)">
+                                        <form class="user" method="POST" action="PHP/Document2.php"  name ="regform"  onsubmit="return checkPassword(this)">
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                                     <label>Name</label>

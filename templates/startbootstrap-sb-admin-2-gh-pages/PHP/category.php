@@ -16,7 +16,7 @@ include('connection.php');
             
     
        // 
-        ?> <script> alert ("New record created successfully.") </script>; <?php
+        ?> <script> alert ("New record created successfully."); </script> <?php
     } 
       else 
       {

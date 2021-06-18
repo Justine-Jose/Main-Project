@@ -1,6 +1,6 @@
 <?php
 
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 
 if(!empty($_SESSION['username']))
 
@@ -261,7 +261,7 @@ while($row = mysqli_fetch_array($result))
                                             .$row['second_author'] ."</br>" 
                                             .$row['third_author'] . "</td>";  ?>
                                           <?php echo "<td>" .$row["edition"] ."</td>"; ?>
-                                          <?php echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/recommend.php?x=" .$row['book_id']. " ' class = 'btn btn-success btn-sm'>Recommend</a></a>"; ?>
+                                          <?php echo "<td><a href='PHP/recommend.php?x=" .$row['book_id']. " ' class = 'btn btn-success btn-sm'>Recommend</a></a>"; ?>
                                            
                                         </tr>
         <?php

@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -501,7 +501,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                 this.responseText;
                 }
             };
-            xhttp.open("GET", "./php/load_faculty.php", true);
+            xhttp.open("GET", "PHP/load_faculty.php", true);
             xhttp.send();
             }
 
@@ -514,7 +514,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                 this.responseText;
                 }
             };
-            xhttp.open("GET", "./php/load_student.php", true);
+            xhttp.open("GET", "PHP/load_student.php", true);
             xhttp.send();
             }
 
@@ -535,7 +535,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
             }*/
 
             function searchDoc(searchbar) {
-                console.log("./php/admin_search_user.php?query="+searchbar.value)
+                console.log("PHP/admin_search_user.php?query="+searchbar.value)
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -544,7 +544,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                         document.getElementById("showtable").innerHTML = this.responseText;
                 }
             };
-        xhttp.open("GET", "./php/admin_search_user.php?query="+searchbar.value,true);
+        xhttp.open("GET", "PHP/admin_search_user.php?query="+searchbar.value,true);
         xhttp.send();       
         }
 </script>

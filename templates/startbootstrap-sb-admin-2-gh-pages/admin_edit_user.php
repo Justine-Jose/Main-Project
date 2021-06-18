@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 //$t = $_GET['x'];
 //die($t);
 ?>
@@ -463,7 +463,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 <script>
 //function update(id){
 //	var frm = document.getElementById("frmm")
-//	frm.setAttribute("action","../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php?id="+id);
+//	frm.setAttribute("action","/PHP/edit_book.php?id="+id);
 //	frm.submit();
 //}
 </script>
@@ -475,7 +475,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <form name = "frmm" method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/adminedit_user.php" >
+                                    <form name = "frmm" method = "POST" action = "PHP/adminedit_user.php" >
 
                                     
                     
@@ -533,7 +533,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
 
                                         
                                         <?php
-                                            //echo "<a href = '../startbootstrap-sb-admin-2-gh-pages/PHP/edit_book.php?y=" .$row['book_id']. " ' class = 'btn btn-danger brn-sm' name = 'update'>Update</a>";
+                                            //echo "<a href = '/PHP/edit_book.php?y=" .$row['book_id']. " ' class = 'btn btn-danger brn-sm' name = 'update'>Update</a>";
 
                                         ?>
 

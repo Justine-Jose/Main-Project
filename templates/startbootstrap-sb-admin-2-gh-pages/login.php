@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user" method="POST" action="../startbootstrap-sb-admin-2-gh-pages/PHP/login.php">
+                                    <form class="user" method="POST" action="PHP/login.php">
                                         <div class="form-group"><label>Username</label>
                                             <input type="text" class="form-control form-control-user"
                                                 id="exampleInputEmail" name="username" aria-describedby="emailHelp" required autocomplete="off">

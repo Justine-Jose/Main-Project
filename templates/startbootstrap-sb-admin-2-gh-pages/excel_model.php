@@ -2,7 +2,7 @@
 session_start();
 
 
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('/PHP/connection.php');
 
 header('Content-type: application/vnd-ms-excel');
 $filename = "user_data.xls";

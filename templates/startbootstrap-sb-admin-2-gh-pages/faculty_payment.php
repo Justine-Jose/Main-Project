@@ -1,5 +1,5 @@
 <?php 
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 if(!empty($_SESSION['username']))
 
     {
@@ -287,7 +287,7 @@ if(!empty($_SESSION['username']))
                                     var amont = $(this).val();
 
                                 $.ajax({
-                                    url:'../startbootstrap-sb-admin-2-gh-pages/PHP/amount_check.php',
+                                    url:'/PHP/amount_check.php',
                                     method:"POST",
                                     data:{amount:amont},
                                     success:function(data)

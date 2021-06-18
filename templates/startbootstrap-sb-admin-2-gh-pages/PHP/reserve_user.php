@@ -1,7 +1,7 @@
 <?php 
 //print_r($_GET);
 //die();
-session_start();
+//session_start();
 include('connection.php');
 
     $output = " ";
@@ -22,7 +22,7 @@ include('connection.php');
 
         $query = mysqli_query($con, $sql);
         if (mysqli_num_rows($query) > 0) {
-            $output .= "<table class='table table-hover table-striped'>
+            $output .= "<table class='table table-dark table-striped'>
             <thead>
                 <tr>
                     
@@ -42,7 +42,7 @@ include('connection.php');
                     <td>{$row['year_of_publish']}</td>
                     <td>{$row['edition']}</td>
                     <td>{$row['book_count']}</td>
-                    <td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/reserve.php?x=" .$row['book_id']. " '> Reserve</a></td>
+                    <td><a href='PHP/reserve.php?x=" .$row['book_id']. " ' class = 'btn btn-primary'> Reserve</a></td>
                     
                 </tr>
                 </tbody>";

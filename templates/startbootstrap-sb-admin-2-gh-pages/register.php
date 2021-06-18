@@ -1,6 +1,6 @@
 <?php
 
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -199,7 +199,7 @@ include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
                         var username = $(this).val();
 
                     $.ajax({
-                        url:'../startbootstrap-sb-admin-2-gh-pages/PHP/username_check.php',
+                        url: 'PHP/username_check.php',
                         method:"POST",
                         data:{user_name:username},
                         success:function(data)

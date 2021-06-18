@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -346,7 +346,7 @@ $sql = "SELECT a.book_id, a.book_title, b.issue_id, b.book_id, b.issue_date, b.r
                                             <?php echo " <td>" .$row["issue_date"] ."</td>";?>
                                             <?php echo " <td>" .$row["return_date"] ."</td>";?>
                                             <?php //echo " <td>" .$row["issue_id"] ."</td>";?>
-                                            <?php echo "<td><a href='../startbootstrap-sb-admin-2-gh-pages/PHP/return.php?x=" .$row['issue_id']. " ' class = 'btn btn-success btn-sm'>Return</a></td>"; ?>
+                                            <?php echo "<td><a href='PHP/return.php?x=" .$row['issue_id']. " ' class = 'btn btn-success btn-sm'>Return</a></td>"; ?>
                                             
                                         </tr>
                                     </tbody>

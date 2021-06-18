@@ -1,5 +1,5 @@
 <?php
-include('../startbootstrap-sb-admin-2-gh-pages/PHP/connection.php');
+include('PHP/connection.php');
 if(!empty($_SESSION['username']))
 
 {
@@ -285,7 +285,7 @@ if(!empty($_SESSION['username']))
 
                     <!-- Content Row -->
                     <div class="card shadow mb-4">
-                    <form method = "POST" action = "../startbootstrap-sb-admin-2-gh-pages/PHP/pdf_report.php">
+                    <form method = "POST" action = "PHP/pdf_report.php">
         <div class="col-md-12 bg-light text-right p-2">
             <input type="submit" class="btn btn-primary" name = "generate" value = "Generate">
         </div>
