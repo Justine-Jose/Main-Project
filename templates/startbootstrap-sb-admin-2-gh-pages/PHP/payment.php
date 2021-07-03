@@ -44,8 +44,16 @@ include('connection.php');
             }
             if($n == $name && $num == $no && $c == $cvno && $mon == $month && $year == $expyear)
                 {
-                    
-                    if($amnt < '500')
+                    if($amnt < $pay)
+                    {
+                        ?>
+                        <script LANGUAGE = 'javascript'> window.alert('Insufficient Amount');
+                        window.location.href ='../user_payment.php';</script>
+                        
+                        <?php
+                        //die("Invalid Amount");
+                    }
+                   /* if($amnt < '500')
                         {   ?>
                         <script LANGUAGE = 'javascript'> window.alert('Insufficient Amount');
                         window.location.href ='../user_payment.php';</script>
@@ -53,7 +61,7 @@ include('connection.php');
                         <?php
                         //header('location: ../user_payment.php');
 
-                    }
+                    }*/
                     else 
                     {
                         
