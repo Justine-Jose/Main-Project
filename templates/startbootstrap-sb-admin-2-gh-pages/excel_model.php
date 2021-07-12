@@ -1,8 +1,8 @@
 <?php
-session_start();
+//session_start();
 
 
-include('/PHP/connection.php');
+include('PHP/connection.php');
 
 header('Content-type: application/vnd-ms-excel');
 $filename = "user_data.xls";

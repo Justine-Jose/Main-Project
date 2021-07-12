@@ -14,16 +14,16 @@ include('connection.php');
 	$a=intval($_GET['x']);
  
  
- $sql = "SELECT b.ebook_id,  b.l_id, b.book_name, b.status, l.l_id, l.username 
-            from ebook_table b,
-            login l WHERE b.l_id = l.l_id ";
+ $sql = "SELECT reserve.reserve_id, reserve.book_id, reserve.l_id, reserve.reservation_date, reserve.reservation_status,
+        l.l_id, l.username, l.status, book.book_id, book.book_title from reserve_book reserve, login l, book_table book 
+        where reserve.l_id = l.l_id and reserve.book_id = book.book_id and  reserve.reservation_status = '0'";
     $result = mysqli_query($con,$sql);
    //die($result);
 
     while($row = mysqli_fetch_assoc($result))
     {
        
-        $querry = "UPDATE ebook_table set status = 'Approved' WHERE ebook_id = $a";
+        $querry = "UPDATE reserve_book set reservation_status = '1' WHERE reserve_id = $a";
         $res = mysqli_query($con,$querry);
        
 
@@ -35,9 +35,13 @@ include('connection.php');
 if($res)
 
     {
+        ?>
       
      // header("location:../admin_approve_ebook.php");
-      echo'<script>alert("Approved ")</script>';
+      <script>alert("Approved ");
+      window.location.href = '../admin_view_reservation.php';
+    </script>
+    <?php
   }
 
     else{
